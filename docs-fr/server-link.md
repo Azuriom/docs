@@ -4,20 +4,20 @@
 
 Afin de pouvoir lier votre serveur avec votre site sous Azuriom, vous aurez trois possibilités:
 
-* Par Ping - **C'est la solution la plus limitée**, elle vous permet juste de récuperer 
-les joueurs connectés de votre serveur. _(ne permet pas d'executer des commandes)_
+* Par Ping - **C'est la solution la plus limitée**, elle vous permet juste de récupérer 
+les joueurs connectés de votre serveur. _(ne permets pas d'exécuter des commandes)_
 
-* Par Rcon - **C'est la solution intermédiaire**, elle vous permet de récuperer les informations 
-de votre serveur et d'executer des commandes.
+* Par Rcon - **C'est la solution intermédiaire**, elle vous permet de récupérer les informations 
+de votre serveur et d'exécuter des commandes.
 
-* Par Plugin - **C'est la solution optimale**, elle vous permettra d'avoir les fonctionnalités du Rcon 
+* Par Plugin - **C'est la solution optimale**, elle vous permettra d'avoir les fonctionnalités du Rcon, 
 mais avec des fonctionnalités plus poussées _(exemple: un système de statistique avancé)_
 
 ## Liaison par Ping
 
 Pour pouvoir lier votre serveur avec votre site sous Azuriom par ping, 
 vous avez juste à ajouter un nouveau serveur avec comme type de liaison "Ping"
-et remplir les informations demandées _(le port par defaut est 25565)_.
+et remplir les informations demandées _(le port par défaut est 25565)_.
 
 ## Liaison par Rcon
 
@@ -40,7 +40,7 @@ et remplir les informations demandées. _(le port Rcon par defaut est 25575)_
 ### Qu'est-ce que AzLink ?
 
 AzLink est un plugin de liaison site-serveur spécialement conçu pour Azuriom 
-afin de vous permettre de lier votre serveur à votre site de facon simple, rapide et sécurisée.
+afin de vous permettre de lier votre serveur à votre site de façon simple, rapide et sécurisée.
 AzLink supporte Bukkit, BungeeCord, Sponge et Velocity dans le même plugin. Une version legacy est disponible
 pour Bukkit 1.7.10.
 
