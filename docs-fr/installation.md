@@ -2,12 +2,12 @@
 
 Azuriom peut être installé de deux façons différentes:
 
-- De façon automatique grâçe à l'installateur _(recommandé pour la plupart des utilisateurs)_ 
-- De façon manuelle via [Composer](https://getcomposer.org/) _(recommandé pour les utilisateurs éxperimentés ou souhaitants contribuer à Azuriom)_
+- De façon automatique grâce à l'installateur _(recommandé pour la plupart des utilisateurs)_ 
+- De façon manuelle via [Composer](https://getcomposer.org/) _(recommandé pour les utilisateurs experimentés ou souhaitant contribuer à Azuriom)_
 
 ## Installation Automatique
 
-1. Télécharger la derniere version d'Azuriom sur [notre site](https://azuriom.com/download)
+1. Télécharger la dernière version d'Azuriom sur [notre site](https://azuriom.com/download)
 
 2. Extraire l'archive à la racine de votre site web
 
@@ -17,7 +17,7 @@ Azuriom peut être installé de deux façons différentes:
 
 1. Cloner le repos GitHub (https://github.com/Azuriom/Azuriom.git) ou [télécharger une release](https://github.com/Azuriom/Azuriom/release).
 
-2. Copier le fichier `.env.example` vers `.env` et indiquer les informations de connexion à la base de donnée
+2. Copier le fichier `.env.example` vers `.env` et indiquer les informations de connexion à la base de données
 
 3. Mettre les droits d'écriture/lecture aux fichiers `storage/` et `bootstrap/cache/`:
 ```
@@ -39,14 +39,14 @@ composer install
 composer install --optimize-autoloader --no-dev
  ```
 
-6. Mettre en place la base de donnée:
+6. Mettre en place la base de données:
  ```
 php artisan migrate --seed
  ```
 
-7. Configurer votre serveur web pour qu'il pointe vers le dossier `public/` _(Optionnel mais trés fortement recommandé)_
+7. Configurer votre serveur web pour qu'il pointe vers le dossier `public/` _(Optionnel, mais très fortement recommandé)_
 
-8. Mettre en place le scheduler _(Optionnel mais recommandé)_:
+8. Mettre en place le scheduler _(Optionnel, mais recommandé)_:
 
 Vous devez configurer votre serveur pour que la commande `php artisan schedule:run` soit exécutée toutes les minutes, par exemple en ajoutant une entrée Cron:
  ```
