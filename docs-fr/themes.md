@@ -11,7 +11,7 @@ la racine de votre site.
 
 ```
 themes/  <-- Dossier contenant tous les thèmes installés
-|  example/  <-- Slug de votre thème (nom de votre thème en miniscule)
+|  example/  <-- Slug de votre thème (nom de votre thème en minuscule)
 |  |  theme.json  <-- Le fichier principal de votre thème contenant les différentes informations
 |  |  views/  <-- Le dossier contenant les vues de votre thème
 |  |  config/
@@ -53,13 +53,13 @@ de template Blade. Si vous ne maitrisez pas Blade il est très vivement recomman
 de lire [sa documentation](https://laravel.com/docs/6.x/blade), d'autant plus que celle-ci est assez courte.
 
 > {warn} Il est très vivement recommandé de ne PAS utiliser la syntaxe PHP
-traditionelle lorsque vous travaillez avec Blade, en effet celle-ci n'apporte
-aucun avantage et seulement des inconvéniants.
+traditionnelle lorsque vous travaillez avec Blade, en effet celle-ci n'apporte
+aucun avantage et seulement des inconvénients.
 
 Côté CSS, il est recommandé d'utiliser framework par défaut du cms qui est [Bootstrap 4](https://getbootstrap.com/), 
 cela permettra de réaliser plus facilement votre thème et sera compatible avec les nouveaux plugins 
-ce qui vous évitera de faire des mises à jour constament.
-Mais vous pouvez bien évidement utiliser le framework CSS de votre choix.
+ce qui vous évitera de faire des mises à jour constamment.
+Mais vous pouvez bien évidemment utiliser le framework CSS de votre choix.
 
 Côté Javascript, jQuery n'est pas obligatoire, seul [Axios](https://github.com/axios/axios) est nécessaire comme dépendance!
 
@@ -68,7 +68,7 @@ Côté Javascript, jQuery n'est pas obligatoire, seul [Axios](https://github.com
 Le layout est la structure de l'ensemble des pages de votre thème. Il contient
 en effet les metas, assets de votre thème, header, footer etc.
 
-Pour afficher le contenu de la page actuelle vous pouvez utiliser
+Pour afficher le contenu de la page actuelle, vous pouvez utiliser
 `@yield('content')`, et pour afficher le titre de la page actuelle vous pouvez
 utiliser `@yield('title')`
 
@@ -96,7 +96,7 @@ trans: `{{ trans('theme::messages.hello') }}` ou via la directive `@lang`:
 `@lang('theme::messages.hello')`.
 Vous pouvez également utiliser `trans_choice` pour une traduction comportant des
 nombres, et `trans_bool` pour traduire un boolean (retournera en français `Oui`
-/`Non`).
+/ `Non`).
 
 Pour plus de détails sur les traductions, vous pouvez vous référer à la
 [documentation de Laravel](https://laravel.com/docs/6.x/localization).
@@ -109,7 +109,7 @@ Pour plus de détails sur l'authentification, vous pouvez vous référer à la
 
 #### Fonctions utiles
 
-Vous pouvez récupérer un certains nombres de paramètres du site via des fonctions
+Vous pouvez récupérer un certain nombre de paramètres du site via des fonctions
 dédiées:
 
 |    Fonction      |             Description                |
