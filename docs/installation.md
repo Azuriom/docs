@@ -38,7 +38,7 @@ Azuriom can be installed in two different ways:
 
 ### Manual Installation
 
-1. Clone the GitHub repository (https://github.com/Azuriom/Azuriom.git) or [download a release](https://github.com/Azuriom/Azuriom/release).
+1. Clone the GitHub repository (https://github.com/Azuriom/Azuriom.git) or [download a release](https://github.com/Azuriom/Azuriom/releases).
 
 2. Copy the `.env.example` file to `.env` and specify the database connection information.
 
