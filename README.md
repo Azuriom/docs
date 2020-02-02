@@ -1,5 +1,5 @@
 # Azuriom documentation
 
-The repository of the documentation for Azuriom.
+The repository for Azuriom's Documentation.
 
-You can find an online version of the docs on https://azuriom.com/docs.
+You can find an online version of the docs at https://azuriom.com/docs.
