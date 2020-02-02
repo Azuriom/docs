@@ -1,10 +1,10 @@
 # AzAuth
 
-AzAuth is an api that allows to authenticate users of a site under Azuriom on any platform.
+AzAuth is an api allowing you to authenticate users of a website under Azuriom on any platform.
 
 ## Download
 
-You can download AzAuth's sources and releases at
+You can download AzAuth's source and releases at
 [GitHub](https://github.com/Azuriom/AzAuth/releases).
 
 If you are using a dependency manager, you can add AzAuth as a
