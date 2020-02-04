@@ -76,3 +76,54 @@ Konieczne jest skonfigurowanie serwera WWW, aby polecenie `php artisan schedule:
 * * * * * cd /path-to-azuriom && php artisan schedule:run >> /dev/null 2>&1
  ```
 Można to zrobić, modyfikując konfigurację crontab za pomocą polecenia `crontab -e`.
+
+## Konfiguracja serwera WWW
+
+### Apache 2
+
+Jeśli używasz Apache 2, może być konieczne włączenie modułu przepisywania adresów URL.
+
+Aby to zrobić, zmodyfikuj plik `/ etc / apache2 / sites-available / 000-default.conf` i dodaj następujące wiersze 
+między znacznikami <VirtualHost> (zastępując` var / www / azuriom` adresem strony):
+```xml
+<Directory "/var/www/azuriom">
+    Options FollowSymLinks
+    AllowOverride All
+    Require all granted
+</Directory>
+```
+
+Następnie musisz ponownie uruchomić Apache 2:
+```
+service apache2 restart
+```
+
+### Nginx
+
+Jeśli hostujesz Azuriom na serwerze, który używa Nginx, możesz użyć następującej konfiguracji:
+
+```
+server {
+    listen 80;
+    server_name example.com;
+    root /var/www/azuriom/public;
+    add_header X-Frame-Options "SAMEORIGIN";
+    add_header X-XSS-Protection "1; mode=block";
+    add_header X-Content-Type-Options "nosniff";
+    index index.html index.htm index.php;
+    charset utf-8;
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location = /robots.txt  { access_log off; log_not_found off; }
+    error_page 404 /index.php;
+    location ~ \.php$ {
+        fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+```
+
+Pamiętaj tylko, aby zastąpić "example.com” swoją domeną, a `/ var / www / azuriom` adresem swojej witryny.
