@@ -76,3 +76,56 @@ php artisan migrate --seed
 * * * * * cd /path-to-azuriom && php artisan schedule:run >> /dev/null 2>&1
  ```
 Это можеть быть выполнено путем модификации crontab-конфигурации командой `crontab -e`.
+
+## Конфигурация веб-сервера
+
+### Apache 2
+
+Если Вы используете Apache 2, может потребоваться включение модуля перезаписи URL.
+
+Для этого измените файл `/ etc / apache2 / sites-available / 000-default.conf`
+и добавьте следующие строки между тегами `<VirtualHost>` (заменив
+`var/www/azuriom` адресом сайта):
+```xml
+<Directory "/var/www/azuriom">
+    Options FollowSymLinks
+    AllowOverride All
+    Require all granted
+</Directory>
+```
+
+Далее необходимо перезапустить Apache 2:
+```
+service apache2 restart
+```
+
+### Nginx
+
+Если Вы размещаете Azuriom на сервере, который использует Nginx, то можно воспользоваться следующей конфигурацией:
+
+```
+server {
+    listen 80;
+    server_name example.com;
+    root /var/www/azuriom/public;
+    add_header X-Frame-Options "SAMEORIGIN";
+    add_header X-XSS-Protection "1; mode=block";
+    add_header X-Content-Type-Options "nosniff";
+    index index.html index.htm index.php;
+    charset utf-8;
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location = /robots.txt  { access_log off; log_not_found off; }
+    error_page 404 /index.php;
+    location ~ \.php$ {
+        fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+```
+
+Просто не забудьте заменить "example.com" на ваш домен и `/ var / www / azuriom`
+на адрес сайта.
