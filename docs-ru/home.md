@@ -15,4 +15,4 @@ Azuriom был разработан [MrMicky](https://mrmicky.fr/) & [SkyWarZzeu
 Azuriom, начиная с установки и заканчивая созданием плагинов и тем!
 
 По любым интересующим вопросам Вы можете обратиться к нам, перейдя по 
-ссылке[Discord Server](https://azuriom.com/discord).
+ссылке [Discord Server](https://azuriom.com/discord).

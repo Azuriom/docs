@@ -2,7 +2,7 @@
 
 ## Wymagania
 
-Do pracy Azuriom wymaga tylko ** serwera WWW z PHP ** posiadającego ** 100 MB **
+Do pracy Azuriom wymaga tylko **serwera WWW z PHP** posiadającego **100 MB**
 wolnego miejsca na dysku, a także:
 
  - PHP 7.2 lub później
@@ -20,29 +20,29 @@ wolnego miejsca na dysku, a także:
  - Rozszerzenie GD2 PHP 
  - Rozszerzenie Zip PHP 
 
-Zaleca się także posiadanie ** MySQL / MariaDB lub bazy danych PostgreSQL **.
+Zaleca się także posiadanie **MySQL/MariaDB lub bazy danych PostgreSQL**.
 
 ## Instalacja
 AAzuriom można zainstalować na dwa sposoby:
 
-- Automatycznie poprzez plik instalacyjny_ (zalecane dla większości użytkowników) _.
-- Ręcznie używając [Kompozytora] (https://getcomposer.org/) _ (zalecany dla profesjonalnych użytkowników i dla tych, którzy chcą pomóc w rozwoju Azuriom) _.
+- Automatycznie poprzez plik instalacyjny _(zalecane dla większości użytkowników)_.
+- Ręcznie używając [Composer](https://getcomposer.org/) _(zalecany dla profesjonalnych użytkowników i dla tych, którzy chcą pomóc w rozwoju Azuriom)_.
 
 ### Automatyczna instalacja
 
-1. Pobierz najnowszą wersję Azuriom z linku [nasza strona] (https://azuriom.com/download).
+1. Pobierz najnowszą wersję Azuriom z linku [nasza strona](https://azuriom.com/download).
 
 2. Wypakuj archiwum do głównego źródła swojej witryny.
 
-3. Przejdź do `twojastrona.com / install.php` i postępuj zgodnie z dalszymi krokami instalacji.
+3. Przejdź do `twojastrona.com/install.php` i postępuj zgodnie z dalszymi krokami instalacji.
 
 ### Instalacja ręczna
 
-1. Skopiuj repozytorium GitHub (https://github.com/Azuriom/Azuriom.git) lub [pobierz wersję] (https://github.com/Azuriom/Azuriom/release).
+1. Skopiuj repozytorium GitHub (https://github.com/Azuriom/Azuriom.git) lub [pobierz wersję](https://github.com/Azuriom/Azuriom/release).
 
-2. Skopiuj plik `.env.example` do` .env` i wprowadź informacje o połączeniu z bazą danych.
+2. Skopiuj plik `.env.example` do `.env` i wprowadź informacje o połączeniu z bazą danych.
 
-3. Ustaw uprawnienia do odczytu/edycji folderów `storage /`, `bootstrap / cache /`, `resources / themes` i` plugins`:
+3. Ustaw uprawnienia do odczytu/edycji folderów `storage/`, `bootstrap/cache/`, `resources/themes` i `plugins`:
 ```
 chmod -R 770 storage bootstrap/cache resources/themes plugins
 ```
@@ -67,9 +67,9 @@ composer install --optimize-autoloader --no-dev
 php artisan migrate --seed
 ```
 
-7. Skonfiguruj serwer WWW tak, aby wskazywał folder `public /` _ (opcjonalny, ale zalecany) _
+7. Skonfiguruj serwer WWW tak, aby wskazywał folder `public/` _(opcjonalny, ale zalecany)_
 
-8. Skonfiguruj harmonogram _ (opcjonalny, ale zalecany) _:
+8. Skonfiguruj harmonogram _(opcjonalny, ale zalecany)_:
 
 Konieczne jest skonfigurowanie serwera WWW, aby polecenie `php artisan schedule: run` działało co minutę, na przykład dodając wprowadzenie do Crona:
  ```
@@ -83,8 +83,8 @@ Można to zrobić, modyfikując konfigurację crontab za pomocą polecenia `cron
 
 Jeśli używasz Apache 2, może być konieczne włączenie modułu przepisywania adresów URL.
 
-Aby to zrobić, zmodyfikuj plik `/ etc / apache2 / sites-available / 000-default.conf` i dodaj następujące wiersze 
-między znacznikami <VirtualHost> (zastępując` var / www / azuriom` adresem strony):
+Aby to zrobić, zmodyfikuj plik `/etc/apache2/sites-available/000-default.conf` i dodaj następujące wiersze 
+między znacznikami `<VirtualHost>` (zastępując `var/www/azuriom` adresem strony):
 ```xml
 <Directory "/var/www/azuriom">
     Options FollowSymLinks
@@ -126,4 +126,4 @@ server {
     }
 ```
 
-Pamiętaj tylko, aby zastąpić "example.com” swoją domeną, a `/ var / www / azuriom` adresem swojej witryny.
+Pamiętaj tylko, aby zastąpić `example.com` swoją domeną, a `/var/www/azuriom` adresem swojej witryny.

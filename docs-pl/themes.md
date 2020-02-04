@@ -4,7 +4,7 @@
 
 Motyw pozwala w pełni dostosować wygląd strony za pomocą Azuriom.
 
-Aby zainstalować motyw, po prostu umieść go w folderze `resources / themes /` w katalogu głównym witryny.
+Aby zainstalować motyw, po prostu umieść go w folderze `resources/themes/` w katalogu głównym witryny.
 
 ## Utwórz motyw
 
@@ -14,7 +14,7 @@ Aby zainstalować motyw, po prostu umieść go w folderze `resources / themes /`
 themes/ <-- Folder zawierający wszystkie zainstalowane motywy
 | example/ <-- Slug Twojego motywu (nazwa twojego motywu małymi literami)
 | | theme.json <-- Główny plik Twojego motywu zawierający różne informacje
-| |  assets/  <-- Folder z zasobami Twojego motywu (css, js, images, svg itp.)
+| | assets/  <-- Folder z zasobami Twojego motywu (css, js, images, svg itp.)
 | | views/ <-- Folder zawierający widoki twojego motywu.
 | | config/
 | | | config.json
@@ -49,18 +49,18 @@ php artisan theme:create <theme name>
 Widoki są sercem motywu; są to pliki zawartości HTML 
 motywu dla różnych części witryny.
 
-W Azuriom przy użyciu widoków [Laravel] (https://laravel.com/) widoki można tworzyć za pomocą Blade.
-Jeśli nie masz jeszcze Blade'a, zdecydowanie zalecamy przeczytanie informacji na [jego dokumentacji] (https://laravel.com/docs/6.x/blade).
+W Azuriom przy użyciu widoków [Laravel](https://laravel.com/) widoki można tworzyć za pomocą Blade.
+Jeśli nie masz jeszcze Blade'a, zdecydowanie zalecamy przeczytanie informacji na [jego dokumentacji](https://laravel.com/docs/6.x/blade).
 
-> {uwaga} Zdecydowanie zaleca się NIE używać składni PHP
+> {warn} Zdecydowanie zaleca się NIE używać składni PHP
 podczas pracy z Blade, ponieważ to tylko skomplikuje dalszą pracę.
 
-Jeśli chodzi o CSS, zaleca się korzystanie ze standardowej struktury CMS, którą jest [Bootstrap 4] (https://getbootstrap.com).
+Jeśli chodzi o CSS, zaleca się korzystanie ze standardowej struktury CMS, którą jest [Bootstrap 4](https://getbootstrap.com).
 Ułatwi to implementację motywu i będzie kompatybilny z nowymi wtyczkami, 
 więc nie musisz dokonywać ciągłych aktualizacji.
 Ale możesz oczywiście użyć wybranego przez siebie szkieletu CSS.
 
-Jeśli chodzi o JavaScript, jQuery jest opcjonalny, tylko [Axios] (https://github.com/axios/axios) jest potrzebny jako zależność.
+Jeśli chodzi o JavaScript, jQuery jest opcjonalny, tylko [Axios](https://github.com/axios/axios) jest potrzebny jako zależność.
 
 #### Układ
 
@@ -87,12 +87,12 @@ Aby uzyskać link do zasobu w motywie, użyj funkcji
 
 W razie potrzeby możesz pobrać tłumaczenie dla motywu.
 
-Aby to zrobić, utwórz plik `messages.php` w katalogu` lang / <język> `(przykład:` lang / en`).
+Aby to zrobić, utwórz plik `messages.php` w katalogu `lang/<język>` (przykład: `lang/en`).
 swojego motywu. Następnie możesz wyświetlić tłumaczenie za pomocą polecenia
-trans: `{{trans ('theme :: messages.hello')}}` lub przez `@ lang`:
-`@lang ('theme :: messages.hello')`.
+trans: `{{ trans('theme::messages.hello') }}` lub przez `@lang`:
+`@lang('theme::messages.hello')`.
 Możesz także użyć `trans_choice`
-dla tłumaczeń z liczbami oraz `trans_bool` dla tłumaczeń ze zmiennymi binarnymi (wraca do polskiego` Tak`
+dla tłumaczeń z liczbami oraz `trans_bool` dla tłumaczeń ze zmiennymi binarnymi (wraca do polskiego `Tak`
 / `Nie`).
 
 Aby uzyskać bardziej szczegółowe informacje o tłumaczeniach, możesz skorzystać z linku
@@ -100,7 +100,7 @@ Aby uzyskać bardziej szczegółowe informacje o tłumaczeniach, możesz skorzys
 
 #### Użytkownik
 
-Bieżącego użytkownika można obliczyć za pomocą funkcji `auth () -> user ()`.
+Bieżącego użytkownika można obliczyć za pomocą funkcji `auth()->user()`.
 Aby uzyskać więcej informacji na temat uwierzytelniania, kliknij tutaj.
 [Laravel documentation](https://laravel.com/docs/6.x/authentication).
 
@@ -113,15 +113,15 @@ Możesz uzyskać określoną liczbę parametrów ze strony internetowej, korzyst
 | `site_name ()`    | Pobiera nazwę strony                            |
 | `site_logo ()`    | Pozwala uzyskać link do logo strony             |
 | `favicon ()`      | Pozwala uzyskać link do ikony strony            |
-| `format_date ()`  | Wyświetla datę sformatowaną w bieżącym języku. Ta funkcja przyjmuje przypadek `Carbon \ Carbon` jako parametr |
+| `format_date ()`  | Wyświetla datę sformatowaną w bieżącym języku. Ta funkcja przyjmuje przypadek `Carbon\Carbon` jako parametr |
 | `money_name ()`   | Zwraca nazwę waluty witryny                     |
 | `format_money ()` | Zwraca kwotę w formacie waluty witryny          |
 
 ### Ustawienie motywu
 
 Możesz dodać konfigurację do motywu. Aby to zrobić, utwórz motywy w katalogu głównym:
-* Plik `config / config.blade.php` zawierający formularz konfiguracji.
-* Plik `config / rules.php` z różnymi regułami sprawdzania poprawności konfiguracji motywu.
+* Plik `config/config.blade.php` zawierający formularz konfiguracji.
+* Plik `config/rules.php` z różnymi regułami sprawdzania poprawności konfiguracji motywu.
 * Plik `config.json` z konfiguracją motywu i oryginalnymi wartościami.
 
 ##### Przykład:

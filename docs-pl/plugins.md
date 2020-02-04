@@ -3,7 +3,7 @@
 ## Wprowadzenie
 
 Wtyczki dodają nowe, specjalne funkcje do Twojej witryny. Wiele
-z których są dostępne na naszej stronie [Market] (https://azuriom.com/market)
+z których są dostępne na naszej stronie [Market](https://azuriom.com/market)
 ale możesz także utworzyć własny, jeśli nie znalazłeś tego, czego potrzebujesz.
 
 ## Tworzenie wtyczek
@@ -19,7 +19,7 @@ plugins/  <-- Folder z zainstalowanymi różnymi wtyczkami
 |  |  plugin.json  <-- Główny plik Twojego tematu zawierający różne informacje
 |  |  assets/  <-- Folder z zasobami Twojej wtyczki (css, js, images, svg itd.)
 |  |  database/
-|  |  | migrations/ <-- Folder zawierający migracje wtyczki
+|  |  |  migrations/ <-- Folder zawierający migracje wtyczki
 |  |  resources/
 |  |  |  lang/  <-- Folder zawierający tłumaczenia Twojej wtyczki
 |  |  |  views/  <-- Folder zawierający widoki wtyczki
@@ -61,14 +61,14 @@ Trasy umożliwiają powiązanie adresu URL z określoną akcją.
 Są one przechowywane w katalogu trasy w katalogu głównym wtyczki.
 
 Więcej informacji na temat działania tras można znaleźć tutaj.
-[Dokumentacja Laravela] (https://laravel.com/docs/6.x/routing).
+[Dokumentacja Laravel](https://laravel.com/docs/6.x/routing).
 
 Przykład:
 ```php
 Route::get('/support', 'SupportController@index')->name('index');
 ```
 
-> {uwaga} Nie używaj tras z zakończeniami,
+> {warn} Nie używaj tras z zakończeniami,
 ponieważ nie są one kompatybilne z niektórymi optymalizacjami CMS.
 
 ### Widoki
@@ -76,10 +76,10 @@ ponieważ nie są one kompatybilne z niektórymi optymalizacjami CMS.
 Widoki są widoczną częścią wtyczki; są to pliki treści HTML
 wtyczki do wyświetlenia strony.
 
-W Azuriom przy użyciu widoków [Laravel] (https://laravel.com/) widoki można tworzyć za pomocą Blade.
-Jeśli nie masz jeszcze Blade'a, zdecydowanie zalecamy przeczytanie informacji na [jego dokumentacji] (https://laravel.com/docs/6.x/blade).
+W Azuriom przy użyciu widoków [Laravel](https://laravel.com/) widoki można tworzyć za pomocą Blade.
+Jeśli nie masz jeszcze Blade'a, zdecydowanie zalecamy przeczytanie informacji na [jego dokumentacji](https://laravel.com/docs/6.x/blade).
 
-> {uwaga} Zdecydowanie zaleca się NIE używać składni PHP
+> {warn} Zdecydowanie zaleca się NIE używać składni PHP
 podczas pracy z Blade, ponieważ to tylko skomplikuje dalszą pracę.
 
 Aby wyświetlić widok, użyj `view ('<plugin slug> :: <view name>')`,
@@ -89,11 +89,11 @@ wtyczki.
 ### Kontrolery
 
 Kontrolery są centralną częścią wtyczki, znajdują się w folderze
-`src / Controllers` w katalogu głównym wtyczki i są odpowiedzialni za
+`src/Controllers` w katalogu głównym wtyczki i są odpowiedzialni za
 przekształcenie żądania w odpowiedź, która zostanie odesłana do użytkownika.
 
 Aby uzyskać więcej informacji o działaniu kontrolerów, możesz skorzystać z łącza
-[Dokumentacja Laravela] (https://laravel.com/docs/6.x/controllers).
+[Dokumentacja Laravel](https://laravel.com/docs/6.x/controllers).
 
 przykład:
 ```php
@@ -129,10 +129,10 @@ class TicketController extends Controller
 Szablony są pozycją w tabeli bazy danych i umożliwiają interakcję z tą bazą danych.
 
 Możesz także ustanowić różne relacje między modelami,
-na przykład `bilet` może zawierać `użytkownika` i `kategorii`, a także `komentarze`.
+na przykład `ticket` może zawierać `user` i `category`, a także `comments`.
 
 Możesz znaleźć więcej informacji o modelach (zwanych także Eloquent na Laravel) pod adresem
-[Dokumentacja Laravela] (https://laravel.com/docs/6.x/eloquent).
+[Dokumentacja Laravel](https://laravel.com/docs/6.x/eloquent).
 
 ```php
 <?php
@@ -264,7 +264,7 @@ class SupportServiceProvider extends BasePluginServiceProvider
 ### Migracje
 
 Migracje umożliwiają tworzenie, modyfikowanie lub usuwanie tabel w bazie danych.
-Można je znaleźć w folderze `database / migrations`.
+Można je znaleźć w folderze `database/migrations`.
 
 Możesz znaleźć więcej informacji na temat migracji, klikając poniższy link.
 [Laravel documentation](https://laravel.com/docs/6.x/migrations).
@@ -313,15 +313,15 @@ class CreateSupportTicketsTable extends Migration
 ### Tłumaczenia
 
 Tłumaczenia pozwalają tłumaczyć wtyczki (świetnie!). Oni są
-w katalogach `resources / lang` w katalogu głównym wtyczki, w
-folder językowy (`en`,` fr` itp.)
+w katalogach `resources/lang` w katalogu głównym wtyczki, w
+folder językowy (`en`, `fr` itp.)
 
 Więcej informacji o tłumaczeniach można znaleźć tutaj
-[Dokumentacja Laravela] (https://laravel.com/docs/6.x/localization).
+[Dokumentacja Laravela](https://laravel.com/docs/6.x/localization).
 
 Aby otrzymać przelew, możesz użyć polecenia
-`trans ('<nazwa wtyczki> :: <nazwa pliku>. <wiadomość>')), na przykład
-`trans ('support :: messages.tickets.home')` aby wyświetlić komunikat `tickets.home`,
+`trans('<nazwa wtyczki>::<nazwa pliku>.<wiadomość>')`, na przykład
+`trans('support::messages.tickets.home')` aby wyświetlić komunikat `tickets.home`,
 w pliku `messages.php` wtyczki pomocniczej:
 ```php
 <?php

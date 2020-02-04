@@ -57,7 +57,7 @@ dependencies {
 ### Использование с [OpenLauncherLib](https://github.com/Litarvan/OpenLauncherLib/) _(для лаунчера майнкрафт)_
 
 Для начала работы, добавьте AzAuth в качестве зависимости к вашему проекту.
-Также, если Вы используете [OpenAuth] (https://github.com/Litarvan/OpenAuth/), рекомендуется удалить его,
+Также, если Вы используете [OpenAuth](https://github.com/Litarvan/OpenAuth/), рекомендуется удалить его,
 хотя в целом его наличие не должно вызвать существенных проблем.
 
 В коде вашего лаунчера должен иметься`auth`-метод, похожий на представленный ниже:
@@ -79,6 +79,6 @@ dependencies {
 
 ### Использование без OpenLauncherLib
 
-AzAuth был разработан с [Gson] (https://github.com/google/gson) в качестве единственной зависимости, так что Вы можете спокойно использовать его даже без
+AzAuth был разработан с [Gson](https://github.com/google/gson) в качестве единственной зависимости, так что Вы можете спокойно использовать его даже без
 OpenLauncherLib. Просто используйте `AzAuthenticator#authenticate(String username, String password)`, и это
 выдаст Вам `AuthResult`, содержащий ник, uuid, ранг, токен доступа и множество другой полезной информации.
