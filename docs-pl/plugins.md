@@ -58,7 +58,7 @@ php artisan plugin:create <nazwa wtyczki>
 
 Trasy umożliwiają powiązanie adresu URL z określoną akcją.
 
-Są one przechowywane w katalogu trasy w katalogu głównym wtyczki.
+Są one przechowywane w katalogu `routes` w katalogu głównym wtyczki.
 
 Więcej informacji na temat działania tras można znaleźć tutaj.
 [Dokumentacja Laravel](https://laravel.com/docs/6.x/routing).
@@ -82,8 +82,8 @@ Jeśli nie masz jeszcze Blade'a, zdecydowanie zalecamy przeczytanie informacji n
 > {warn} Zdecydowanie zaleca się NIE używać składni PHP
 podczas pracy z Blade, ponieważ to tylko skomplikuje dalszą pracę.
 
-Aby wyświetlić widok, użyj `view ('<plugin slug> :: <view name>')`,
-lub, na przykład, `view ('support :: Tickets.index')`, aby wyświetlić widok `tickets.index`
+Aby wyświetlić widok, użyj `view('<plugin slug>::<view name>')`,
+lub, na przykład, `view('support::Tickets.index')`, aby wyświetlić widok `tickets.index`
 wtyczki.
 
 ### Kontrolery
