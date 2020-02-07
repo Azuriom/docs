@@ -66,10 +66,15 @@ composer install --optimize-autoloader --no-dev
 ```
 php artisan migrate --seed
 ```
+                                                
+7. Utwórz konto administratora _ (opcjonalnie, ale bardzo przydatne) _:
+```
+php artisan artisan user:create --admin
+```
 
-7. Skonfiguruj serwer WWW tak, aby wskazywał folder `public/` _(opcjonalny, ale zalecany)_
+8. Skonfiguruj serwer WWW tak, aby wskazywał folder `public/` _(opcjonalny, ale zalecany)_
 
-8. Skonfiguruj harmonogram _(opcjonalny, ale zalecany)_:
+9. Skonfiguruj harmonogram _(opcjonalny, ale zalecany)_:
 
 Konieczne jest skonfigurowanie serwera WWW, aby polecenie `php artisan schedule: run` działało co minutę, na przykład dodając wprowadzenie do Crona:
  ```

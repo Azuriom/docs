@@ -71,6 +71,11 @@ Route::get('/support', 'SupportController@index')->name('index');
 > {warn} Nie używaj tras z zakończeniami,
 ponieważ nie są one kompatybilne z niektórymi optymalizacjami CMS.
 
+#### Trasy administracyjne
+
+Aby trasa była w panelu administracyjnym, po prostu umieść ją w pliku
+`routes/admin.php` wtyczki.
+
 ### Widoki
 
 Widoki są widoczną częścią wtyczki; są to pliki treści HTML
@@ -85,6 +90,33 @@ podczas pracy z Blade, ponieważ to tylko skomplikuje dalszą pracę.
 Aby wyświetlić widok, użyj `view('<plugin slug>::<view name>')`,
 lub, na przykład, `view('support::Tickets.index')`, aby wyświetlić widok `tickets.index`
 wtyczki.
+
+Aby zdefiniować układ strony, 
+możesz użyć domyślnego „układu” (lub motywu, jeśli taki istnieje) 
+za pomocą `@extends('layouts.app')` lub utworzyć własny układ i przedłużyć go.
+
+Następnie będziesz musiał umieścić całą główną treść w sekcji `content`, 
+a tytuł strony w sekcji` title`.
+
+```html
+@extends('layouts.app')
+
+@section('title', 'Nazwa strony')
+
+@section('content')
+    <div class="container content">
+        <h1>Un titre</h1>
+
+        <p>Un texte</p>
+    </div>
+@endsection
+```
+
+#### Widoki administratora
+
+Aby strona mogła korzystać z układu panelu administracyjnego, wystarczy użyć układu admin.layouts.admin. 
+Zalecane jest również utworzenie folderu administracyjnego w folderze zasobów i umieszczenie w nim 
+widoków administratora.
 
 ### Kontrolery
 
