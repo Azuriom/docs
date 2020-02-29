@@ -88,7 +88,7 @@ Jeśli nie masz jeszcze Blade'a, zdecydowanie zalecamy przeczytanie informacji n
 podczas pracy z Blade, ponieważ to tylko skomplikuje dalszą pracę.
 
 Aby wyświetlić widok, użyj `view('<plugin slug>::<view name>')`,
-lub, na przykład, `view('support::Tickets.index')`, aby wyświetlić widok `tickets.index`
+lub, na przykład, `view('support::tickets.index')`, aby wyświetlić widok `tickets.index`
 wtyczki.
 
 Aby zdefiniować układ strony, 
@@ -96,7 +96,7 @@ możesz użyć domyślnego „układu” (lub motywu, jeśli taki istnieje)
 za pomocą `@extends('layouts.app')` lub utworzyć własny układ i przedłużyć go.
 
 Następnie będziesz musiał umieścić całą główną treść w sekcji `content`, 
-a tytuł strony w sekcji` title`.
+a tytuł strony w sekcji `title`.
 
 ```html
 @extends('layouts.app')

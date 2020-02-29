@@ -67,7 +67,7 @@ composer install --optimize-autoloader --no-dev
 php artisan migrate --seed
 ```
                                                 
-7. Utwórz konto administratora _ (opcjonalnie, ale bardzo przydatne) _:
+7. Utwórz konto administratora _(opcjonalnie, ale bardzo przydatne)_:
 ```
 php artisan artisan user:create --admin
 ```
