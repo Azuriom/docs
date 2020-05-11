@@ -10,7 +10,7 @@ and the jar file can be downloaded from
 
 
 If you are using a dependency manager, you can add AzAuth as a
-dependency in the following way:
+dependency by the following way:
 
 ### Gradle
 
@@ -51,7 +51,7 @@ in `pom.xml`:
 
 ## Use of AzAuth (Java)
 
-Before using AzAuth, please make sure that the api is activated by going to
+Before using AzAuth, please make sure that the API is activated by going to
 in the settings of your site, on your admin panel.
 
 ### Using with [OpenLauncherLib](https://github.com/Litarvan/OpenLauncherLib/) _(for minecraft launcher)_
@@ -68,7 +68,7 @@ public static void auth(String username, String password) throws AuthenticationE
     authInfos = new AuthInfos(response.getSelectedProfile().getName(), response.getAccessToken(), response.getSelectedProfile().getId());
 }
 ```
-You just have to replace it by the code below, to modify `<url>` by the url of the root of your site under azuriom.
+You just have to replace it by the code below, to modify `<url>` by the url of your Azuriom's website root.
 ```java
 public static void auth(String username, String password) throws AuthenticationException, IOException {
     AzAuthenticator authenticator = new AzAuthenticator("<url>");
@@ -82,5 +82,5 @@ into your launcher.
 ### Using without OpenLauncherLib
 
 AzAuth has been designed with [Gson](https://github.com/google/gson) as its only dependency, so you can use it perfectly well if you don't use
-OpenLauncherLib, you can simply use `AzAuthenticator#authenticate(String username, String password)` and that
-give you directly an `User` containing username, uuid, rank, access token and lots of other useful data.
+OpenLauncherLib, you can simply use `AzAuthenticator#authenticate(String username, String password)` and that will 
+give you directly a `User` containing a username, uuid, rank, access token and lots of other useful data.
