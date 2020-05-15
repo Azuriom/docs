@@ -25,13 +25,27 @@ Il est également très fortement recommandé de posséder **une base de donnée
 
 Azuriom peut être installé sur n'importe quel VPS ou serveur dédié ainsi que sur
 la majorité des hébergeurs web ayant les prérequis ci-dessus, cependant certains
-hébergeurs ne sont pas compatibles :
-* [000webhost](https://www.000webhost.com/) : Incompatible (La fonction `putenv()` est désactivée).
-* [InovaPerf](https://inovaperf.fr/) : Incompatible avec l'offre gratuite (La fonction `fsockopen()` est désactivée).
-* [BoxToPlay](https://www.boxtoplay.com/) : Incompatible (Extensions BCMath et XML manquantes)
+hébergeurs ne sont pas compatibles ou nécessitent des petites adaptations :
+* [000webhost](https://www.000webhost.com/) : Incompatible (La fonction `putenv()` est désactivée).
+* [InovaPerf](https://inovaperf.fr/) : Incompatible avec l'offre gratuite (La fonction `fsockopen()` est désactivée).
+* [BoxToPlay](https://www.boxtoplay.com/) : Incompatible (Extensions BCMath et XML manquantes)
 et très fortement déconseillé pour un serveur MineCraft.
 * [mTxServ](https://mtxserv.com/) : Incompatible (La fonction `symlink()` est désactivée).
 * [LiveHost](https://www.livehost.fr/) : Incompatible (La fonction `symlink()` est désactivée).
+* [Ionos](https://www.ionos.fr/) : En cas d'erreur 500 après l'installation,
+    il faut simplement modifier le fichier `.htaccess` à la racine du site et
+    rajouter `RewriteBase /` juste au-dessus de la ligne `RewriteEngine On`,
+    ce qui doit donner quelque chose comme ça :
+    ```
+        ...
+        </IfModule>
+
+        RewriteBase /
+        RewriteEngine On
+    
+        # Handle Authorization Header
+        ...
+    ```
 
 Si vous recherchez un hébergeur web associatif **performant à petit prix**, nous
 vous recommandons notre partenaire [NiHost](https://www.ni-host.com/).
