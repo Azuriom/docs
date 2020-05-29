@@ -94,6 +94,14 @@ utiliser `@yield('title')`.
 `@include('<nom de la vue>')`, par exemple `@include('element.navbar')` pour
 inclure la navbar.
 
+#### Vues d'un plugin
+
+Pour changer les vues d'un plugin, il suffit de créer un dossier `plugins` dans
+le dossier `views` du thème et de créer un dossier pour chaque plugin (en utilisant
+l'id du plugin et non le nom du plugin), puis d'y ajouter les vues du plugin.
+
+Par exemple pour le plugin vote, ca donnera `views/plugins/vote/index.blade.php`.
+
 ### Méthodes
 
 #### Assets

@@ -93,6 +93,14 @@ To define the layout of the page, the view must extend the view containing
 the layout, you can either use the default layout with
 `@extends('layouts.app')`, or create your own layout and extend it.
 
+#### Plugin views
+
+To change the views of a plugin, simply create a `plugins` directory in
+the `views` folder of the theme and create a folder for each plugin (using
+the plugin id and not the plugin name), then add the plugin views.
+
+For example, for the vote plugin, this will give `views/plugins/vote/index.blade.php`.
+
 ### Methods
 
 #### Assets
