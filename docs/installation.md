@@ -22,6 +22,22 @@ of disk space and the following requirements:
 
 It's also highly recommended having a **MySQL/MariaDB or PostgreSQL database**.
 
+### Requirements installations
+
+If you are using a VPS or a dedicated server, it will probably be necessary to install
+yourself Nginx, PHP and MySQL. This can be done with the following commands :
+```
+apt update && apt upgrade
+
+apt install nginx zip curl
+
+apt install lsb-release apt-transport-https ca-certificates
+wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
+echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/php.list
+apt update
+apt install php7.4 php7.4-fpm php7.4-mysql php7.4-pgsql php7.4-sqlite php7.4-bcmath php7.4-mbstring php7.4-xml php7.4-curl php7.4-zip php7.4-gd
+```
+
 ## Installation
 Azuriom can be installed in two different ways:
 
@@ -58,7 +74,7 @@ Azuriom can be installed in two different ways:
 
 1. Copy the `.env.example` file to `.env` and specify the database connection information.
 
-1. Set write/read permissions to the `storage/`, `bootstrap/cache/`, `resources/themes` and `plugins` folders:
+1. Set write/read permissions to the `storage/`, `bootstrap/cache/`, `resources/themes/` and `plugins/` folders:
     ```
     chmod -R 755 storage bootstrap/cache resources/themes plugins
     ```
@@ -166,7 +182,7 @@ server {
     error_page 404 /index.php;
 
     location ~ \.php$ {
-        fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
+        fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
         fastcgi_index index.php;
         fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
         include fastcgi_params;
@@ -179,4 +195,4 @@ server {
 ```
 
 Just remember to replace `example.com` with your domain, `/var/www/azuriom`
-with the location of the site and `php7.2` with your PHP version.
+with the location of the site and `php7.4` with your PHP version.
