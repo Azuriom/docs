@@ -37,6 +37,10 @@ apt update
 apt install php7.4 php7.4-fpm php7.4-mysql php7.4-pgsql php7.4-sqlite php7.4-bcmath php7.4-mbstring php7.4-xml php7.4-curl php7.4-zip php7.4-gd
 ```
 
+> {info} Si vous préférez, vous pouvez aussi utiliser ce
+[script non-officiel d'installation automatique](https://github.com/AzuriomCommunity/Script-AutoInstall)
+qui installera tous les pré-requis automatiquement.
+
 ## Hébergeurs
 
 Azuriom peut être installé sur n'importe quel VPS ou serveur dédié ainsi que sur
@@ -95,6 +99,9 @@ Azuriom peut être installé de deux façons différentes :
 1. Se rendre sur `votre-site.fr/` et suivre les étapes de l'installation.
 
 ### Installation Manuelle
+
+> {warn} À moins de savoir ce que vous faites il est très fortement recommandé
+d'utiliser l'installation automatique !
 
 1. Cloner le [repo GitHub](https://github.com/Azuriom/Azuriom) ou [télécharger une release](https://github.com/Azuriom/Azuriom/releases).
     ```

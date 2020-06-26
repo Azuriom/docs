@@ -38,6 +38,10 @@ apt update
 apt install php7.4 php7.4-fpm php7.4-mysql php7.4-pgsql php7.4-sqlite php7.4-bcmath php7.4-mbstring php7.4-xml php7.4-curl php7.4-zip php7.4-gd
 ```
 
+> {info} If you prefer, you can also use this unofficial 
+[auto-install script](https://github.com/AzuriomCommunity/Script-AutoInstall)
+which will install all the prerequisites automatically.
+
 ## Installation
 Azuriom can be installed in two different ways:
 
@@ -66,6 +70,9 @@ Azuriom can be installed in two different ways:
 1. Go to `your-website.com/` and follow the steps of installation.
 
 ### Manual Installation
+
+> {warn} Warning, unless you know what you are doing it is highly recommended
+using the automatic installation!
 
 1. Clone the [GitHub repository](https://github.com/Azuriom/Azuriom) or [download a release](https://github.com/Azuriom/Azuriom/releases).
     ```
