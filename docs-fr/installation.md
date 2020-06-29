@@ -74,29 +74,30 @@ vous recommandons notre partenaire [NiHost](https://www.ni-host.com/).
 
 Azuriom peut être installé de deux façons différentes :
 
-- De façon automatique grâce à l'installateur _(recommandé pour la plupart des utilisateurs)_ 
+- De façon simple & automatique grâce à l'installateur _(recommandé pour la plupart des utilisateurs)_ 
 - De façon manuelle via [Composer](https://getcomposer.org/) _(recommandé pour les utilisateurs expérimentés ou souhaitant contribuer à Azuriom)_
 
 ### Installation Automatique
 
-1. Télécharger la dernière version d'Azuriom sur [notre site](https://azuriom.com/download).
+1. Télécharger la dernière version de l'installateur d'Azuriom sur [notre site](https://azuriom.com/download).
 
 1. Extraire l'archive à la racine de votre site web.
 
-1. Mettre les droits d'écriture aux dossiers `storage/`, `bootstrap/cache/`, `resources/themes/` et `plugins/`:
+1. Mettre les droits d'écriture à la racine du serveur web :
     ```
-    chmod -R 755 storage bootstrap/cache resources/themes plugins
+    chmod -R 755 /var/www/azuriom
     ```
+    (en remplaçant simplement `/var/www/azuriom` par l'emplacement du site)
     
     Si l'utilisateur actuel n'est pas le même que l'utilisateur du serveur web,
-    il peut être nécessaire de changer le propriétaire des fichiers:
+    il peut être nécessaire de changer le propriétaire des fichiers :
     ```
     chown -R www-data:www-data /var/www/azuriom
     ```
-    (en remplaçant `var/www/azuriom` par l'emplacement du site et `www-data` par
+    (en remplaçant simplement `/var/www/azuriom` par l'emplacement du site et `www-data` par
     l'utilisateur du serveur web)
 
-1. Se rendre sur `votre-site.fr/` et suivre les étapes de l'installation.
+1. Se rendre sur `votre-site.fr/install.php` et suivre les étapes de l'installation.
 
 ### Installation Manuelle
 

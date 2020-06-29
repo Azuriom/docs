@@ -50,24 +50,25 @@ Azuriom can be installed in two different ways:
 
 ### Automatic Installation
 
-1. Download the latest version of Azuriom on [our website](https://azuriom.com/download).
+1. Download the latest version of the Azuriom installer on [our website](https://azuriom.com/download).
 
 1. Extract the archive at the root of your website.
 
-1. Set write/read permissions to the `storage/`, `bootstrap/cache/`, `resources/themes` and `plugins` folders:
+1. Set write/read permissions to the root of your web server:
     ```
-    chmod -R 755 storage bootstrap/cache resources/themes plugins
+    chmod -R 755 /var/www/azuriom
     ```
+    (just replace `/var/www/azuriom` with the site location)
     
     If the current user is not the web server user, it may be
     necessary to change the owner of the files:
     ```
     chown -R www-data:www-data /var/www/azuriom
     ```
-    (replace `var/www/azuriom` with the site location and `www-data`
+    (replace `/var/www/azuriom` with the site location and `www-data`
     with the web server user)
 
-1. Go to `your-website.com/` and follow the steps of installation.
+1. Go to `your-website.com/install.php` and follow the steps of installation.
 
 ### Manual Installation
 

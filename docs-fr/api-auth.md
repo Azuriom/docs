@@ -87,3 +87,99 @@ remplacés par `e.getMessage()`.
 AzAuth a été conçu avec comme seule dépendance [Gson](https://github.com/google/gson), vous pouvez donc parfaitement l'utiliser si vous n'utilisez pas
 OpenLauncherLib, vous pouvez simplement utiliser `AzAuthenticator#authenticate(String username, String password)` et cela va
 vous donner directement un `User` contenant le pseudo, l'uuid, le grade, l'access token et pleins d'autres données utiles.
+
+## Utilisation hors Java
+
+L'auth API peut être utilisée dans n'importe quel language sans utiliser de librairie
+spécifique, il suffit juste de faire des requêtes HTTP aux différents endpoints.
+
+L'ensemble de l'API utilise du JSON et l'URL de base de l'API est `/api/azauth`.
+
+Les dates sont retournées au format ISO 8601.
+
+L'API retourne un code 200 en cas de succès, un code 422 en cas de paramètres manquants
+ou invalides. En cas d'une autre erreur, le code associé pourra être retourné. 
+
+### Endpoints
+
+#### Authentification
+
+**POST** `/authenticate`
+
+Permet d'authentifier un utilisateur grâce à ses identifiants du site.
+
+##### Requête
+| Field |            Description            |
+| ----- | --------------------------------- |
+| email | E-Mail ou Pseudo de l'utilisateur |
+| name  |   Mot de passe de l'utilisateur   |
+
+##### Réponse
+
+Retourne l'utilisateur avec ses différentes informations ainsi que le token unique
+qui pourra être utilisé pour vérifier la connexion ou pour la déconnexion.
+
+Exemple de réponse :
+```json
+{
+    "id": 1,
+    "username": "Username",
+    "uuid": "00000000-0000-0000-0000-000000000000",
+    "email_verified": true,
+    "money": 100.0,
+    "role": {
+        "name": "Member",
+        "color": "#e10d11"
+    },
+    "banned": false,
+    "created_at": "2020-06-29T17:39:12+00:00",
+    "access_token": "xxxxxxxx"
+}
+```
+
+#### Vérification
+
+**POST** `/verify`
+
+##### Requête
+|     Field    |               Description              |
+| ------------ | -------------------------------------- |
+| access_token | Token d'acccès unique de l'utilisateur |
+
+##### Réponse
+
+Retourne l'utilisateur avec ses différentes informations ainsi que le token unique
+qui pourra être utilisé pour la déconnexion.
+
+Exemple de réponse :
+```json
+{
+    "id": 1,
+    "username": "Username",
+    "uuid": "00000000-0000-0000-0000-000000000000",
+    "email_verified": true,
+    "money": 100.0,
+    "role": {
+        "name": "Member",
+        "color": "#e10d11"
+    },
+    "banned": false,
+    "created_at": "2020-06-29T17:39:12+00:00",
+    "access_token": "xxxxxxxx"
+}
+```
+
+#### Déconnexion
+
+**POST** `/logout`
+
+Déconnecte l'utilisateur et rend invalide le token donné.
+
+##### Requête
+|     Field    |               Description              |
+| ------------ | -------------------------------------- |
+| access_token | Token d'acccès unique de l'utilisateur |
+
+##### Réponse
+
+En cas de succès réponse vide, avec le code `200` ou `204`.
