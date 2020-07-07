@@ -380,3 +380,75 @@ return [
   ],
 ];
 ```
+
+### Navigation
+
+#### Utilisateurs
+
+Il est recommandé d'enregistrer les routes principales de votre plugin 
+afin que celles-ci puissent facilement être ajoutée dans la barre de navigation.
+Pour cela il suffit d'appeler la méthode `$thiS->registerRouteDescriptions()`
+dans le provider du plugin et de retourner les différentes routes dans la méthode
+`routeDescriptions()` au format `[<route> => <description>]` :
+```php
+    /**
+     * Bootstrap any plugin services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        // ...
+
+        $this->registerRouteDescriptions();
+    }
+
+    /**
+     * Returns the routes that should be able to be added to the navbar.
+     *
+     * @return array
+     */
+    protected function routeDescriptions()
+    {
+        return [
+            'support.tickets.index' => 'support::messages.title',
+        ];
+    }
+```
+
+### Admin
+
+Pour que les pages d'administration de votre plugin apparaissent dans la barre de
+navigation du panel admin, vous pouvez les enregistrer en appelant la méthode
+`$this->registerAdminNavigation()` et en retournant les différentes routes dans
+la méthode `adminNavigation()` :
+```php
+    /**
+     * Bootstrap any plugin services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        // ...
+
+        $this->registerAdminNavigation();
+    }
+
+    /**
+     * Return the admin navigations routes to register in the dashboard.
+     *
+     * @return array
+     */
+    protected function adminNavigation()
+    {
+        return [
+            'support' => [
+                'name' => 'support::admin.title', // Traduction du nom de l'onglet
+                'icon' => 'fas fa-question', // Icône FontAwesome
+                'route' => 'support.admin.tickets.index', // Route de la page
+                'permission' => 'support.tickets', // (Optionnel) Permission nécessaire pour voir cet onglet
+            ],
+        ];
+    }
+```

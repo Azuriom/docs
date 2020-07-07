@@ -375,3 +375,74 @@ return [
   ],
 ];
 ```
+
+### Navigation
+
+#### Utilisateurs
+
+It is recommended to register the main routes of your plugin so that they can be
+easily added in the navigation bar. To do this, simply call the
+`$thiS->registerRouteDescriptions()` method in the plugin provider and return
+the different routes in the `routeDescriptions()` method with the format 
+`[<route> => <description>]`:
+```php
+    /**
+     * Bootstrap any plugin services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        // ...
+
+        $this->registerRouteDescriptions();
+    }
+
+    /**
+     * Returns the routes that should be able to be added to the navbar.
+     *
+     * @return array
+     */
+    protected function routeDescriptions()
+    {
+        return [
+            'support.tickets.index' => 'support::messages.title',
+        ];
+    }
+```
+
+### Admin
+
+To make your plugin's admin pages appear in the navbar of the admin panel,
+you can register them by calling the method `$this->registerAdminNavigation()`
+and returning the different routes in the `adminNavigation()` method.
+```php
+    /**
+     * Bootstrap any plugin services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        // ...
+
+        $this->registerAdminNavigation();
+    }
+
+    /**
+     * Return the admin navigations routes to register in the dashboard.
+     *
+     * @return array
+     */
+    protected function adminNavigation()
+    {
+        return [
+            'support' => [
+                'name' => 'support::admin.title', // Translation of the tab name
+                'icon' => 'fas fa-question', // FontAwesome icon
+                'route' => 'support.admin.tickets.index', // Page's route
+                'permission' => 'support.tickets', // (Optional) Permission required to view this page
+            ],
+        ];
+    }
+```

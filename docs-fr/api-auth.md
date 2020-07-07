@@ -109,10 +109,10 @@ ou invalides. En cas d'une autre erreur, le code associé pourra être retourné
 Permet d'authentifier un utilisateur grâce à ses identifiants du site.
 
 ##### Requête
-| Field |            Description            |
-| ----- | --------------------------------- |
-| email | E-Mail ou Pseudo de l'utilisateur |
-| name  |   Mot de passe de l'utilisateur   |
+|   Field   |            Description            |
+| --------- | --------------------------------- |
+|   email   | E-Mail ou Pseudo de l'utilisateur |
+| password  |   Mot de passe de l'utilisateur   |
 
 ##### Réponse
 

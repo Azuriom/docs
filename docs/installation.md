@@ -38,6 +38,9 @@ apt update
 apt install php7.4 php7.4-fpm php7.4-mysql php7.4-pgsql php7.4-sqlite php7.4-bcmath php7.4-mbstring php7.4-xml php7.4-curl php7.4-zip php7.4-gd
 ```
 
+Once the requirements are installed, you must configure the web server.
+Explanations are available at the bottom of this page.
+
 > {info} If you prefer, you can also use this unofficial 
 [auto-install script](https://github.com/AzuriomCommunity/Script-AutoInstall)
 which will install all the prerequisites automatically.
@@ -201,6 +204,9 @@ server {
     }
 }
 ```
+
+This config must be placed in a site in `site-available` and not in the
+`nginx.conf`.
 
 Just remember to replace `example.com` with your domain, `/var/www/azuriom`
 with the location of the site and `php7.4` with your PHP version.

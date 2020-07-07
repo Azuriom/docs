@@ -26,7 +26,7 @@ themes/  <-- Dossier contenant tous les thèmes installés
 ### Le fichier theme.json
 
 Tous les thèmes ont besoin d'avoir un fichier `theme.json` à leur racine, c'est
-le seul élément indispensable pour un thème et il se présente sous cette forme:
+le seul élément indispensable pour un thème et il se présente sous cette forme :
 ```json
 {
     "id": "exemple",
@@ -49,7 +49,7 @@ php artisan theme:create <nom du thème>
 #### ID du thème
 
 Chaque thème doit posséder un id, qui doit être unique et qui doit contenir seulement
-des chiffres, des lettres miniscules et des tirets. Il est recommandé de se baser pour
+des chiffres, des lettres minuscules et des tirets. Il est recommandé de se baser pour
 le nom pour créer l'id, par exemple si le nom est `Hello World`, l'id pourra être
 `hello-world`.
 Également le dossier du thème doit avoir le même nom que son id.
@@ -70,12 +70,17 @@ aucun avantage et seulement des inconvénients.
 Côté CSS, il est recommandé d'utiliser framework par défaut du cms qui est [Bootstrap 4](https://getbootstrap.com/), 
 cela permettra de réaliser plus facilement un thème et sera compatible avec les nouveaux plugins 
 ce qui vous évitera de faire des mises à jour constamment.
-Mais vous pouvez bien évidemment utiliser le framework CSS de votre choix.
+Mais si vous préférez, vous pouvez utiliser un autre framework CSS.
 
-Côté Javascript, jQuery n'est pas obligatoire, seul [Axios](https://github.com/axios/axios) est nécessaire comme dépendance!
+Côté Javascript, la seule dépendance nécessaire est [Axios](https://github.com/axios/axios).
+
+> {warn} Bien que jQuery peut être ajouté et utilisé sans problèmes, il est recommandé
+de ne pas l'utiliser afin qu'il puisse être retiré facilement lors de la sortie de
+Bootstrap 5. De façon générale, [jQuery n'est plus nécessaire aujourd'hui et peut
+être retiré facilement](http://youmightnotneedjquery.com/).
 
 > {info} Si jamais une vue n'est pas présente dans le thème mais est présente de
-base dans le CMS ou dans un plugin, celle ci sera automatiquement utilisée.
+base dans le CMS ou dans un plugin, celle-ci sera automatiquement utilisée.
 
 #### Layout
 
@@ -131,6 +136,20 @@ dédiées :
 | `format_date()`  | Affiche une date formatée avec la langue actuelle. Cette fonction prend en paramètre une instance de `Carbon\Carbon` |
 | `money_name()`   | Retourne le nom de la monnaie du site  |
 | `format_money()` | Retourne un montant formaté avec la monnaie du site |
+
+#### Affichage des joueurs connectés sur le serveur
+
+Pour afficher les joueurs connectés, il suffit de vérifier que la variable `$server`
+n'est pas null et que le serveur est en ligne, et si c'est le cas utiliser
+`$server->getOnlinePlayers()` pour récupérer le nombre de joueurs en ligne.
+
+```blade
+@if($server && $server->isOnline())
+    {{ trans_choice('messages.server.online', $server->getOnlinePlayers()) }}
+@else
+    {{ trans('messages.server.offline') }}
+@endif
+```
 
 ### Traductions
 

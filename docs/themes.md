@@ -69,9 +69,14 @@ no advantages and only disadvantages.
 On the CSS side, it is recommended to use the default framework of the cms which is [Bootstrap 4](https://getbootstrap.com), 
 this will make it easier to realize a theme and will be compatible with the new plugins. 
 so you don't have to make constant updates.
-But you can of course use the CSS framework of your choice.
+But if you prefer you can use another CSS framework.
 
-On the Javascript side, jQuery is not mandatory, only [Axios](https://github.com/axios/axios) is necessary as a dependency!
+In Javascript, the only dependency needed is [Axios](https://github.com/axios/axios).
+
+> {warn} Although jQuery can be added and used without any problems, it is
+recommended not to use it, so it can be easily removed when Bootstrap 5 is
+released. In general [jQuery is no longer needed today and can be removed
+easily](http://youmightnotneedjquery.com/).
 
 > {info} If a view is not present in the theme but is in the CMS or in a plugin,
  it will be automatically used.
@@ -130,6 +135,20 @@ dedicated:
 | `format_date()`  | Displays a date formatted with the current language. This function takes an instance of `Carbon\Carbon` as a parameter |
 | `money_name()`   | Returns the name of the website's currency   |
 | `format_money()` | Returns an amount formatted with the website currency |
+
+#### Display the players connected to the server
+
+To display the connected players, just check the `$server` variable is not null,
+and the server is online, and if it is, use `$server->getOnlinePlayers()` to
+retrieve the online players count.
+
+```blade
+@if($server && $server->isOnline())
+    {{ trans_choice('messages.server.online', $server->getOnlinePlayers()) }}
+@else
+    {{ trans('messages.server.offline') }}
+@endif
+```
 
 #### Translations
 

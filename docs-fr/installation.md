@@ -37,6 +37,9 @@ apt update
 apt install php7.4 php7.4-fpm php7.4-mysql php7.4-pgsql php7.4-sqlite php7.4-bcmath php7.4-mbstring php7.4-xml php7.4-curl php7.4-zip php7.4-gd
 ```
 
+Une fois les pré-requis installés, vous devez configurer le serveur web. Pour ce
+faire, des explications sont disponibles en bas de cette page.
+
 > {info} Si vous préférez, vous pouvez aussi utiliser ce
 [script non-officiel d'installation automatique](https://github.com/AzuriomCommunity/Script-AutoInstall)
 qui installera tous les pré-requis automatiquement.
@@ -213,7 +216,7 @@ service apache2 restart
 ### Nginx
 
 Si vous déployez Azuriom sur un serveur qui utilise Nginx, vous pouvez utiliser
-la configuration suivante :
+la configuration Nginx suivante :
 
 ```
 server {
@@ -251,5 +254,8 @@ server {
 }
 ```
 
-Pensez juste bien à remplacer `example.com` par votre domaine, `/var/www/azuriom`
+Cette config doit être placée dans un site dans `site-available` et non dans le
+`nginx.conf`.
+
+Pensez également à remplacer `example.com` par votre domaine, `/var/www/azuriom`
 par l'emplacement du site et `php7.4` par votre version de PHP.
