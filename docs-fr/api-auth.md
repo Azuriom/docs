@@ -93,7 +93,7 @@ vous donner directement un `User` contenant le pseudo, l'uuid, le grade, l'acces
 L'auth API peut être utilisée dans n'importe quel language sans utiliser de librairie
 spécifique, il suffit juste de faire des requêtes HTTP aux différents endpoints.
 
-L'ensemble de l'API utilise du JSON et l'URL de base de l'API est `/api/azauth`.
+L'ensemble de l'API utilise du JSON et l'URL de base de l'API est `/api/auth`.
 
 Les dates sont retournées au format ISO 8601.
 
