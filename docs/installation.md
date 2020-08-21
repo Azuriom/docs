@@ -51,6 +51,8 @@ Azuriom can be installed in two different ways:
 - Automatically through the installer _(recommended for most users)_. 
 - Manually via [Composer](https://getcomposer.org/) _(recommended for experienced users, or those wishing to contribute to Azuriom)_.
 
+You can also install it with [Docker](https://www.docker.com/) by following the steps listed [here](https://github.com/Azuriom/Azuriom/blob/master/docker/INSTALL.md).
+
 ### Automatic Installation
 
 1. Download the latest version of the Azuriom installer on [our website](https://azuriom.com/download).
