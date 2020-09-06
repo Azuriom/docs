@@ -42,7 +42,7 @@ faire, des explications sont disponibles en bas de cette page.
 
 > {info} Si vous préférez, vous pouvez aussi utiliser ce
 [script non-officiel d'installation automatique](https://github.com/AzuriomCommunity/Script-AutoInstall)
-qui installera tous les pré-requis automatiquement.
+qui installera tous les pré-requis et le CMS automatiquement.
 
 ## Hébergeurs
 
