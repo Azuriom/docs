@@ -82,7 +82,7 @@ Azuriom peut être installé de deux façons différentes :
 
 ### Installation Automatique
 
-1. Télécharger la dernière version de l'installateur d'Azuriom sur [notre site](https://azuriom.com/download).
+1. Télécharger la dernière version de l'installateur d'Azuriom sur [notre site](https://azuriom.com/download) ou depuis GModStore si vous l'y avez acheté.
 
 1. Extraire l'archive à la racine de votre site web.
 
