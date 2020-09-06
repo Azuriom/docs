@@ -88,6 +88,32 @@ AzAuth a été conçu avec comme seule dépendance [Gson](https://github.com/goo
 OpenLauncherLib, vous pouvez simplement utiliser `AzAuthenticator#authenticate(String username, String password)` et cela va
 vous donner directement un `User` contenant le pseudo, l'uuid, le grade, l'access token et pleins d'autres données utiles.
 
+## Utilisation de AzAuth (NodeJs)
+
+### Installation
+
+Les sources d'AzAuth JS sont disponibles sur [GitHub](https://github.com/Azuriom/AzAuthJs)
+et le package peut être installé via npm dans votre projet : `npm install azuriom-auth`.
+
+### Utilisation
+
+```js
+const AzuriomAuth = require('azuriom-auth');
+
+async function login(email, password) {
+  const authenticator = new Authenticator('<url of your website>');
+
+  try {
+    const user = await authenticator.auth(email, password);
+
+    console.log(`Logged in with ${user.email}`);
+  } catch (e) {
+    console.log(e);
+  }
+}
+```
+
+
 ## Utilisation hors Java
 
 L'auth API peut être utilisée dans n'importe quel language sans utiliser de librairie
