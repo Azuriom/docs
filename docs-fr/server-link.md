@@ -59,3 +59,41 @@ Une version legacy est disponible pour les serveurs utilisant Bukkit 1.7.10.
 
 1. Aller sur le site et ajouter un nouveau serveur avec comme type de liaison "AzLink", 
 suivre les étapes de liaison et remplir les informations demandées.
+
+## Jeux Steam
+
+### Introduction
+
+Cette liste comprend les serveurs sous les jeux suivants : Ark, CS:GO, Garry's Mod & Team fortress 2.
+Dans ce cas, vous pouvez relier votre serveur à votre site de deux façons :
+
+* Par Query - elle permet juste de récupérer les joueurs connectés au serveur
+_(ne permet pas d'exécuter de commandes)_.
+
+* Par Rcon - elle permet de récupérer les informations 
+de du serveur et d'y exécuter des commandes.
+
+Vous pouvez vérifier ici les ports par défaut :
+
+|    Jeu      | Port  | Query | RCON  |
+| ----------- | ----- | ----- | ----- |
+| Garry's Mod | 27015 | 27015 | 27015 |
+|     ARK     | 7777  | 27015 | 27020 |
+|   CS:GO     | 27015 | 27015 | 27015 |
+|    TF2      | 27015 | 27015 | 27015 |
+
+### Liaison par Query
+
+Pour pouvoir lier un serveur avec un site sous Azuriom par Query, 
+il faut juste ajouter un nouveau serveur avec comme type de liaison "Source Query"
+et remplir les informations demandées.
+
+### Liaison par Rcon
+
+Pour pouvoir relier votre serveur à votre site web sous Azuriom par Rcon, 
+Vous devez:
+
+1. Aller dans le fichier où se trouvent les informations Rcon de votre serveur.
+   
+1. Aller sur votre site et ajouter un nouveau serveur avec comme type de liaison "Source Rcon"
+et remplir les informations demandées.
