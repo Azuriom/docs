@@ -5,7 +5,7 @@
 Pour fonctionner, Azuriom nécessite simplement un **serveur web avec PHP** disposant d'au moins **100 MO**
 d'espace disque ainsi que des prérequis suivants :
 
- - PHP 7.2 ou plus récent
+ - PHP 7.3 ou plus récent
  - Réécriture d'URL
  - Extension PHP BCMath
  - Extension PHP Ctype
@@ -71,7 +71,8 @@ et très fortement déconseillé pour un serveur MineCraft.
     ```
 
 Si vous recherchez un hébergeur web associatif **performant à petit prix**, nous
-vous recommandons notre partenaire [NiHost](https://www.ni-host.com/).
+vous recommandons notre partenaire [NiHost](https://www.ni-host.com/) chez lequel
+vous pouvez avoir **une réduction de 10% avec le code `AZURIOM`** _(hors domaines & TeamSpeak)_.
 
 ## Installation
 
@@ -79,6 +80,8 @@ Azuriom peut être installé de deux façons différentes :
 
 - De façon simple & automatique grâce à l'installateur _(recommandé pour la plupart des utilisateurs)_ 
 - De façon manuelle via [Composer](https://getcomposer.org/) _(recommandé pour les utilisateurs expérimentés ou souhaitant contribuer à Azuriom)_
+
+Vous pouvez également l'installer avec [Docker](https://www.docker.com/) en suivant les étapes listées [ici](https://github.com/Azuriom/Azuriom/blob/master/docker/INSTALL.md).
 
 ### Installation Automatique
 
