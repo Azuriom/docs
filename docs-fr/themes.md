@@ -18,9 +18,9 @@ themes/  <-- Dossier contenant tous les thèmes installés
 |  |  assets/  <-- Le dossier contenant les assets de votre thème (css, js, images, svg, etc)
 |  |  views/  <-- Le dossier contenant les vues de votre thème
 |  |  config/
-|  |  |  config.json
 |  |  |  config.blade.php
 |  |  |  rules.php
+|  |  config.json
 ```
 
 ### Le fichier theme.json
