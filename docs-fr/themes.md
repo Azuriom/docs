@@ -201,3 +201,18 @@ config.json
     "discord-id": "625774284823986183"
 }
 ```
+
+## Partir d'une configuration avancée
+
+Une base pour créer des thèmes optimisés et avancés est disponible, il s'agit du [Boilerplate](https://github.com/nolway/azuriom-theme-boilerplate).
+
+C'est un thème prés configurer avec Webpack, ce dernier permet de gérer du SASS ainsi que d'optimiser les différents fichiers Java Script.
+
+Node et NPM sont nécessaires pour utiliser Webpack.
+
+Voici les différentes commandes permettent d'utiliser Webpack :
+```
+    npm run webpack:watch # Compiler pour chaques mises à jour du SASS/JS
+    npm run webpack:dev # Compiler pour un environnement de développement
+    npm run webpack:build # Compiler pour un environnement de production
+```
