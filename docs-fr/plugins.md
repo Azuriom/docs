@@ -71,7 +71,7 @@ Les routes permettent d'associer une URL à une action en particulier.
 Elles sont enregistrées dans le dossier `routes` à la racine du plugin.
 
 Pour plus d'informations sur le fonctionnement des routes vous pouvez lire la
-[documentation de Laravel](https://laravel.com/docs/7.x/routing).
+[documentation de Laravel](https://laravel.com/docs/8.x/routing).
 
 Exemple:
 ```php
@@ -93,7 +93,7 @@ du plugin pour afficher une page.
 
 Azuriom utilisant [Laravel](https://laravel.com/), les vues peuvent être faites en utilisant le moteur
 de template Blade. Si vous ne maitrisez pas Blade il est très vivement recommandé
-de lire [sa documentation](https://laravel.com/docs/7.x/blade), d'autant plus que celle-ci est assez courte.
+de lire [sa documentation](https://laravel.com/docs/8.x/blade), d'autant plus que celle-ci est assez courte.
 
 > {warn} Il est très vivement recommandé de ne PAS utiliser la syntaxe PHP
 traditionnelle lorsque vous travaillez avec Blade, en effet celle-ci n'apporte
@@ -137,7 +137,7 @@ Les contrôleurs sont une partie centrale d'un plugin, ils se trouvent dans le d
 de transformer une requête en la réponse qui sera renvoyée à l'utilisateur.
 
 Pour plus d'informations sur le fonctionnement des contrôleurs vous pouvez lire la
-[documentation de Laravel](https://laravel.com/docs/7.x/controllers).
+[documentation de Laravel](https://laravel.com/docs/8.x/controllers).
 
 Exemple :
 ```php
@@ -177,7 +177,7 @@ Vous pouvez également définir dans un modèle les différentes relations de ce
 par exemple un `ticket` peut avoir un `user` et une `category`, et avoir des `comments`.
 
 Vous pouvez trouver plus d'informations sur les modèles (aussi appelés Eloquent sur Laravel) dans la
-[documentation de Laravel](https://laravel.com/docs/7.x/eloquent).
+[documentation de Laravel](https://laravel.com/docs/8.x/eloquent).
 
 Exemple:
 ```php
@@ -261,7 +261,7 @@ Exemple :
 ```
 
 Vous pouvez trouver plus d'informations sur les services providers dans la
-[documentation de Laravel](https://laravel.com/docs/7.x/providers).
+[documentation de Laravel](https://laravel.com/docs/8.x/providers).
 
 ```php
 <?php
@@ -315,7 +315,7 @@ Les migrations permettent de créer, modifier ou supprimer des tables dans la ba
 de données, elles se trouvent dans le dossier `database/migrations`.
 
 Vous pouvez trouver plus d'informations sur les migrations dans la
-[documentation de Laravel](https://laravel.com/docs/7.x/migrations).
+[documentation de Laravel](https://laravel.com/docs/8.x/migrations).
 
 ```php
 <?php
@@ -365,7 +365,7 @@ dans le dossier `resources/lang` à la racine d'un plugin, dans le dossier de la
 langue (`en`, `fr`, etc...).
 
 Vous pouvez trouver plus d'informations sur les traductions dans la
-[documentation de Laravel](https://laravel.com/docs/7.x/localization).
+[documentation de Laravel](https://laravel.com/docs/8.x/localization).
 
 Pour récupérer une traduction vous pouvez utiliser la fonction
 `trans('<id du plugin>::<nom du fichier>.<message>')`, par exemple

@@ -9,6 +9,17 @@ the root of your website.
 
 ## Creating a theme
 
+To quickly create a theme you can use the following command that will
+automatically generate the theme directory and the `theme.json` file:
+```
+php artisan theme:create <theme name>
+```
+
+> {info} To create themes with a more advanced setup with webpack to compile
+SASS files and optimize the JavaScript files, you can use this
+[unofficial boilerplate](https://github.com/nolway/azuriom-theme-boilerplate)
+(you also need to install [Node.js](https://nodejs.org) with NPM)
+
 ### Structure
 
 ```
@@ -40,12 +51,6 @@ the only essential element for a theme, and it looks like this:
 }
 ```
 
-> {info} To create a theme you can also use the following command that will
-automatically generate the theme directory and the `theme.json` file:
-```
-php artisan theme:create <theme name>
-```
-
 #### Theme ID
 
 Each theme must have an id, which must be unique and contain only numbers,
@@ -60,7 +65,7 @@ a theme for the different parts of the website.
 
 Azuriom using [Laravel](https://laravel.com/), views can be made using the
 of template Blade. If you don't master Blade it is highly recommended reading
-[its documentation](https://laravel.com/docs/7.x/blade), especially since it is quite short.
+[its documentation](https://laravel.com/docs/8.x/blade), especially since it is quite short.
 
 > {warn} It is highly recommended NOT to use PHP syntax.
 when you work with Blade, because Blade does not bring you the traditional
@@ -120,7 +125,7 @@ To have the link to an asset in a theme you can use the function
 
 The current user can be retrieved using the `auth()->user()` function.
 For more details on authentication, you can refer to the
-[Laravel documentation](https://laravel.com/docs/7.x/authentication).
+[Laravel documentation](https://laravel.com/docs/8.x/authentication).
 
 #### Functions
 
@@ -163,7 +168,7 @@ numbers, and `trans_bool` to translate a boolean (will return in English `Yes`).
 /`No`.
 
 For more details on translations, you can refer to the
-[Laravel documentation](https://laravel.com/docs/7.x/localization).
+[Laravel documentation](https://laravel.com/docs/8.x/localization).
 
 
 ### Configuration

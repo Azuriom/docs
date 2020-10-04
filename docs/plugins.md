@@ -70,7 +70,7 @@ Routes allow you to associate a URL with a particular action.
 They are stored in the `routes' directory at the root of the plugin.
 
 For more information on how routes work you can read the
-[Laravel documentation](https://laravel.com/docs/7.x/routing).
+[Laravel documentation](https://laravel.com/docs/8.x/routing).
 
 Example:
 ```php
@@ -91,7 +91,7 @@ of the plugin to display a page.
 
 Azuriom using [Laravel](https://laravel.com/), views can be made using the Blade.
 If you don't master Blade it is highly recommended reading
-[its documentation](https://laravel.com/docs/7.x/blade), especially since it is quite short.
+[its documentation](https://laravel.com/docs/8.x/blade), especially since it is quite short.
 
 > {warn} It is highly recommended NOT to use PHP syntax.
 when you work with Blade, because Blade does not bring you the traditional
@@ -135,7 +135,7 @@ Controllers are a central part of a plugin, they are located in the folder
 to transform a request into the answer that will be sent back to the user.
 
 For more information on how the controllers work you can read the
-[Laravel documentation](https://laravel.com/docs/7.x/controllers).
+[Laravel documentation](https://laravel.com/docs/8.x/controllers).
 
 example:
 ```php
@@ -175,7 +175,7 @@ You can also define in a model the different relationships of the model,
 For example, a `ticket` can have a `user` and a `category`, and have `comments`.
 
 You can find more information about models (also called Eloquent on Laravel) in the
-[Laravel documentation](https://laravel.com/docs/7.x/eloquent).
+[Laravel documentation](https://laravel.com/docs/8.x/eloquent).
 
 ```php
 <?php
@@ -256,7 +256,7 @@ Service providers must be added to the `providers` part of the `plugins.json`:
 ```
 
 You can find more information about the services provided in the
-[Laravel documentation](https://laravel.com/docs/7.x/providers).
+[Laravel documentation](https://laravel.com/docs/8.x/providers).
 
 ```php
 <?php
@@ -310,7 +310,7 @@ Migrations allow you to create, modify or delete tables in the database.
 data, they can be found in the `database/migrations` folder.
 
 You can find more information about migrations in the
-[Laravel documentation](https://laravel.com/docs/7.x/migrations).
+[Laravel documentation](https://laravel.com/docs/8.x/migrations).
 
 ```php
 <?php
@@ -360,7 +360,7 @@ in the `resources/lang` directory at the root of a plugin, in the
 language folder (`en`, `fr`, etc...).
 
 You can find more information on translations in the
-[Laravel documentation](https://laravel.com/docs/7.x/localization).
+[Laravel documentation](https://laravel.com/docs/8.x/localization).
 
 To retrieve a translation you can use the
 `trans('<plugin id>::<filename>.<message>')`, for example

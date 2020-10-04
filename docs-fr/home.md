@@ -12,7 +12,7 @@ entièrement **personnaliser** votre site simplement grâce aux extensions de no
 market communautaire tels que des thèmes **modernes** et **responsives**
 ou bien des **plugins complets** tels que la **boutique**, le **forum** et bien plus !
 
-Azuriom a été créé par [MrMicky](https://mrmicky.fr/) & [SkyWarZzeur](https://twitter.com/SkyWarZzeur) avec le framework PHP [Laravel](https://laravel.com/) 7.
+Azuriom a été créé par [MrMicky](https://mrmicky.fr/) & [SkyWarZzeur](https://twitter.com/SkyWarZzeur) avec le framework PHP [Laravel](https://laravel.com/) 8.
 
 Vous pouvez trouver dans cette documentation l'ensemble des informations concernant
 Azuriom, allant de l'installation à la création de plugins/thèmes en passant

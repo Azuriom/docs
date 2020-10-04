@@ -9,7 +9,7 @@ alternative to existing CMS, so you can have the **best web experience possible*
 Azuriom also has an **advanced** extension system, so you can fully **customize** your website with the extensions on our market,
 like **moderns** and **responsive themes** or **plugins** likes **shop**, **forum** and more !
 
-Azuriom was created by [MrMicky](https://mrmicky.fr/) & [SkyWarZzeur](https://twitter.com/SkyWarZzeur) with the PHP framework [Laravel](https://laravel.com/) 7.
+Azuriom was created by [MrMicky](https://mrmicky.fr/) & [SkyWarZzeur](https://twitter.com/SkyWarZzeur) with the PHP framework [Laravel](https://laravel.com/) 8.
 
 You can find in this documentation all the information about
 Azuriom!
