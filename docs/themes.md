@@ -65,7 +65,7 @@ a theme for the different parts of the website.
 
 Azuriom using [Laravel](https://laravel.com/), views can be made using the
 of template Blade. If you don't master Blade it is highly recommended reading
-[its documentation](https://laravel.com/docs/8.x/blade), especially since it is quite short.
+[its documentation](https://laravel.com/docs/blade), especially since it is quite short.
 
 > {warn} It is highly recommended NOT to use PHP syntax.
 when you work with Blade, because Blade does not bring you the traditional
@@ -125,7 +125,7 @@ To have the link to an asset in a theme you can use the function
 
 The current user can be retrieved using the `auth()->user()` function.
 For more details on authentication, you can refer to the
-[Laravel documentation](https://laravel.com/docs/8.x/authentication).
+[Laravel documentation](https://laravel.com/docs/authentication).
 
 #### Functions
 
@@ -168,7 +168,7 @@ numbers, and `trans_bool` to translate a boolean (will return in English `Yes`).
 /`No`.
 
 For more details on translations, you can refer to the
-[Laravel documentation](https://laravel.com/docs/8.x/localization).
+[Laravel documentation](https://laravel.com/docs/localization).
 
 
 ### Configuration

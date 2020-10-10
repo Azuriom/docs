@@ -66,7 +66,7 @@ d'un thème pour afficher les différentes parties du site.
 
 Azuriom utilisant [Laravel](https://laravel.com/), les vues peuvent être faites en utilisant le moteur
 de template Blade. Si vous ne maitrisez pas Blade il est très vivement recommandé
-de lire [sa documentation](https://laravel.com/docs/8.x/blade), d'autant plus que celle-ci est assez courte.
+de lire [sa documentation](https://laravel.com/docs/blade), d'autant plus que celle-ci est assez courte.
 
 > {warn} Il est très vivement recommandé de ne PAS utiliser la syntaxe PHP
 traditionnelle lorsque vous travaillez avec Blade, en effet celle-ci n'apporte
@@ -126,7 +126,7 @@ Pour avoir le lien vers un asset de du thème vous pouvez utiliser la fonction
 
 L'utilisateur actuel peut être récupéré grâce à la fonction `auth()->user()`.
 Pour plus de détails sur l'authentification, vous pouvez vous référer à la
-[documentation de Laravel](https://laravel.com/docs/8.x/authentication).
+[documentation de Laravel](https://laravel.com/docs/authentication).
 
 #### Fonctions utiles
 
@@ -169,7 +169,7 @@ nombres, et `trans_bool` pour traduire un boolean (retournera en français `Oui`
 / `Non`).
 
 Pour plus de détails sur les traductions, vous pouvez vous référer à la
-[documentation de Laravel](https://laravel.com/docs/8.x/localization).
+[documentation de Laravel](https://laravel.com/docs/localization).
 
 ### Configuration
 

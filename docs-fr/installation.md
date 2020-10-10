@@ -76,14 +76,9 @@ vous pouvez avoir **une réduction de 10% avec le code `AZURIOM`** _(hors domain
 
 ## Installation
 
-Azuriom peut être installé de deux façons différentes :
+Azuriom propose un installateur automatique pour installer Azuriom facilement en suivant ces quelques étapes :
 
-- De façon simple & automatique grâce à l'installateur _(recommandé pour la plupart des utilisateurs)_ 
-- De façon manuelle via [Composer](https://getcomposer.org/) _(recommandé pour les utilisateurs expérimentés ou souhaitant contribuer à Azuriom)_
-
-Vous pouvez également l'installer avec [Docker](https://www.docker.com/) en suivant les étapes listées [ici](https://github.com/Azuriom/Azuriom/blob/master/docker/INSTALL.md).
-
-### Installation Automatique
+> {info} Azuriom peut également être installé avec [Docker](https://www.docker.com/) en suivant les étapes listées [ici](https://github.com/Azuriom/Azuriom/blob/master/docker/INSTALL.md).
 
 1. Télécharger la dernière version de l'installateur d'Azuriom sur [notre site](https://azuriom.com/download).
 
@@ -105,71 +100,17 @@ Vous pouvez également l'installer avec [Docker](https://www.docker.com/) en sui
 
 1. Se rendre sur `votre-site.fr/install.php` et suivre les étapes de l'installation.
 
-### Installation Manuelle
-
-> {warn} À moins de savoir ce que vous faites il est très fortement recommandé
-d'utiliser l'installation automatique !
-
-1. Cloner le [repo GitHub](https://github.com/Azuriom/Azuriom) ou [télécharger une release](https://github.com/Azuriom/Azuriom/releases).
-    ```
-    git clone https://github.com/Azuriom/Azuriom.git
-    ```
-
-1. Copier le fichier `.env.example` vers `.env` et indiquer les informations de connexion à la base de données.
-
-1. Mettre les droits d'écriture aux dossiers `storage/`, `bootstrap/cache/`, `resources/themes` et `plugins`:
-    ```
-    chmod -R 755 storage bootstrap/cache resources/themes plugins
-    ```
+1. (Optionnel) Mettre en place le scheduler :
     
-    Si l'utilisateur actuel n'est pas le même que l'utilisateur du serveur web,
-    il peut être nécessaire de changer le propriétaire des fichiers :
-    ```
-    chown -R www-data:www-data /var/www/azuriom
-    ```
-    (en remplaçant `var/www/azuriom` par l'emplacement du site et `www-data` par
-    l'utilisateur du serveur web)
-
-1. Installer les dépendances avec [Composer](https://getcomposer.org/):
-    ```
-    composer install
-    ```
-
-    * Si vous utilisez Azuriom en production, vous pouvez optimiser l'autoloader de Composer en utilisant cette commande: 
-        ```
-        composer install --optimize-autoloader --no-dev
-        ```
-
-1. Générer la clé secrète :
-    ```
-    php artisan key:generate
-    ```
-
-1. Mettre en place la base de données :
-    ```
-    php artisan migrate --seed
-    ```
-
-1. Créer le symlink pour le stockage
-    ```
-    php artisan storage:link
-    ```
-
-1. Créer un compte administrateur _(Optionnel, mais très utile)_ :
-    ```
-    php artisan user:create --admin
-    ```
-
-1. Configurer votre serveur web pour qu'il pointe vers le dossier `public/` _(Optionnel, mais très fortement recommandé)_
-
-1. Mettre en place le scheduler _(Optionnel, mais recommandé)_:
-
-    Vous devez configurer votre serveur pour que la commande `php artisan schedule:run` soit exécutée toutes les minutes, par exemple en ajoutant une entrée Cron:
+    Certaines fonctionnalités ont besoin que le scheduler soit mis en place, pour cela vous 
+    devez configurer votre serveur pour que la commande `php artisan schedule:run` 
+    soit exécutée toutes les minutes, par exemple en ajoutant cette entrée Cron 
+    (n'oubliez pas de remplacer `/var/www/azuriom` par l'emplacement du site) :
     ```
     * * * * * cd /var/www/azuriom && php artisan schedule:run >> /dev/null 2>&1
      ```
-    Cela peut être fait en modifiant la configuration de crontab avec la commande `crontab -e`
-    (n'oubliez pas de remplacer `/var/www/azuriom` par l'emplacement du site).
+    Cela peut être fait en modifiant la configuration de crontab avec la commande `crontab -e`.
+
 
 ## Environnement de développement
 

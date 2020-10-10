@@ -46,14 +46,10 @@ Explanations are available at the bottom of this page.
 which will install all the prerequisites automatically.
 
 ## Installation
-Azuriom can be installed in two different ways:
 
-- Automatically through the installer _(recommended for most users)_. 
-- Manually via [Composer](https://getcomposer.org/) _(recommended for experienced users, or those wishing to contribute to Azuriom)_.
+Azuriom offers an automatic installer to install Azuriom easily by following these few steps :
 
-You can also install it with [Docker](https://www.docker.com/) by following the steps listed [here](https://github.com/Azuriom/Azuriom/blob/master/docker/INSTALL.md).
-
-### Automatic Installation
+> {info} You can also install it with [Docker](https://www.docker.com/) by following the steps listed [here](https://github.com/Azuriom/Azuriom/blob/master/docker/INSTALL.md).
 
 1. Download the latest version of the Azuriom installer on [our website](https://azuriom.com/download).
 
@@ -75,70 +71,16 @@ You can also install it with [Docker](https://www.docker.com/) by following the 
 
 1. Go to `your-website.com/install.php` and follow the steps of installation.
 
-### Manual Installation
-
-> {warn} Warning, unless you know what you are doing it is highly recommended
-using the automatic installation!
-
-1. Clone the [GitHub repository](https://github.com/Azuriom/Azuriom) or [download a release](https://github.com/Azuriom/Azuriom/releases).
-    ```
-    git clone https://github.com/Azuriom/Azuriom.git
-    ```
-
-1. Copy the `.env.example` file to `.env` and specify the database connection information.
-
-1. Set write/read permissions to the `storage/`, `bootstrap/cache/`, `resources/themes/` and `plugins/` folders:
-    ```
-    chmod -R 755 storage bootstrap/cache resources/themes plugins
-    ```
+1. (Optional) Setup the scheduler:
     
-    If the current user is not the web server user, it may be
-    necessary to change the owner of the files:
+    Some features need the scheduler to be set up, for this you need to configure
+    your server to run the command `php artisan schedule:run` every minute,
+    for example by adding this Cron entry (don't forget to replace `/var/www/azuriom`
+    with the location of the site):     
     ```
-    chown -R www-data:www-data /var/www/azuriom
-    ```
-    (replace `var/www/azuriom` with the site location and `www-data`
-    with the web server user)
-
-1. Install the dependencies with [Composer](https://getcomposer.org/):
-    ```
-    composer install
-    ```
-    
-    *If you are using Azuriom in production, you can optimize the autoloader of Composer using this command:
-        ```
-        composer install --optimize-autoloader --no-dev
-        ```
-
-1. Generate the secret key:
-    ```
-    php artisan key:generate
-    ```
-
-1. Setup the database:
-    ```
-    php artisan migrate --seed
-    ```
-
-1. Create the storage symlink
-    ```
-    php artisan storage:link
-    ```
-
-1. Create an admin account _(Optional but recommended)_:
-    ```
-    php artisan user:create --admin
-    ```
-
-1. Configure your web server to point to the `public/` folder _(Optional but highly recommended)_
-
-1. Setup the scheduler _(Optional but recommended)_:
-    You need to configure your web server to run the `php artisan schedule:run` command every minute, for example by adding a Cron entry:
-     ```
     * * * * * cd /var/www/azuriom && php artisan schedule:run >> /dev/null 2>&1
-     ```
-    This can be done by modifying the crontab configuration with the `crontab -e` command
-    (just replace `var/www/azuriom` by the site location).
+    ```
+    This can be done by modifying the crontab configuration with the `crontab -e` command.
 
 ## Web server configuration
 
