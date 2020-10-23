@@ -54,6 +54,7 @@ hébergeurs ne sont pas compatibles ou nécessitent des petites adaptations :
 * [BoxToPlay](https://www.boxtoplay.com/) : Incompatible (Extensions BCMath et XML manquantes)
 et très fortement déconseillé pour un serveur MineCraft.
 * [mTxServ](https://mtxserv.com/) : Incompatible (La fonction `symlink()` est désactivée).
+* [LWS](https://www.lws.fr/) : Incompatible (La fonction `symlink()` est désactivée et la réécriture d'URL pose problème).
 * [LiveHost](https://www.livehost.fr/) : Incompatible (La fonction `symlink()` est désactivée).
 * [Ionos](https://www.ionos.fr/) : En cas d'erreur 500 après l'installation,
     il faut simplement modifier le fichier `.htaccess` à la racine du site et
@@ -84,14 +85,14 @@ Azuriom propose un installateur automatique pour installer Azuriom facilement en
 
 1. Extraire l'archive à la racine de votre site web.
 
-1. Mettre les droits d'écriture à la racine du serveur web :
+1. Mettre les droits d'écriture à la racine du serveur web, par exemple avec cette commande :
     ```
     chmod -R 755 /var/www/azuriom
     ```
     (en remplaçant simplement `/var/www/azuriom` par l'emplacement du site)
     
     Si l'utilisateur actuel n'est pas le même que l'utilisateur du serveur web,
-    il peut être nécessaire de changer le propriétaire des fichiers :
+    il peut être nécessaire de changer le propriétaire des fichiers, par exemple avec cette commande :
     ```
     chown -R www-data:www-data /var/www/azuriom
     ```

@@ -81,6 +81,24 @@ Route::get('/support', 'SupportController@index')->name('index');
 > {warn} Veuillez faire attention à ne pas utiliser de routes avec des closures,
 car celles-ci ne sont pas compatibles avec certaines optimisations du CMS.
 
+#### Assets
+
+Les assets (CSS, JS, images, etc) se trouvent dans le dossier `assets/` et peuvent
+être utilisés avec la fonction `plugin_asset('<id du plugin>', '<chemin de l asset>')`.
+
+Les assets peuvent être inclus dans la page via une [stack Blade](https://laravel.com/docs/blade#stacks)
+à 2 endroits différents de la page selon le type de l'asset :
+* `styles` pour les fichiers CSS (situé dans le `<head>`)
+* `scripts` pour les fichiers JS (situé dans le `<head>`, ne pas oublier d'ajouter l'attribut `defer`
+  aux scripts afin qu'ils bloquent pas le rendu de la page)
+
+Ce qui donne par exemple :
+```html
+@push('scripts')
+    <script src="{{ plugin_asset('vote', 'js/vote.js') }}" defer></script>
+@endpush
+```
+
 #### Routes admin
  
  Pour qu'une route soit dans le panel admin, il suffit de la placer dans le fichier

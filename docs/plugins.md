@@ -122,6 +122,24 @@ and the title of the page in the `title` section.
 @endsection
 ```
 
+#### Assets
+
+The assets (CSS, JS, images, etc) are located in the `assets/` folder and can
+be used with the `plugin_asset('<plugin id>', '<asset path>')` function.
+
+Assets can be included in the page via a [Blade stack](https://laravel.com/docs/blade#stacks).
+in 2 different places on the page depending on the type of asset:
+* `styles` for CSS files (located in the `<head>`)
+* `scripts` for JS files (located in the `<head>`, don't forget to add the `defer` attribute
+  to the script, so they do not block the page rendering)
+
+Example:
+```html
+@push('scripts')
+    <script src="{{ plugin_asset('vote', 'js/vote.js') }}" defer></script>
+@endpush
+```
+
 #### Admin view
 
 For a page to use the admin panel layout, just use the layout
