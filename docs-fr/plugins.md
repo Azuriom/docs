@@ -265,7 +265,7 @@ class Ticket extends Model
 ### Service Provider
 
 Les services providers sont le cœur d'un plugin, ils sont appelés à l'initialisation
-de Laravel, et permettent d'enregistrer les différentes parties d'un plugin (vues, traductions, middlewares, etc).
+de Laravel, et permettent d'enregistrer les différentes parties d'un plugin (vues, traductions, middlewares, librairies, etc).
 
 Les services providers doivent être ajoutés dans la partie `providers` du `plugins.json`.
 
@@ -326,6 +326,13 @@ class SupportServiceProvider extends BasePluginServiceProvider
 }
 ```
 
+### Librairies
+
+Pour ajouter une libraire Composer, dans le dossier de votre plugin, exécutez la commande Composer pour installer une librairie composer.
+
+Puis ajoutez `require_once __DIR__.'/../../vendor/autoload.php';` à la méthode `register` du service provider de votre plugin.
+
+> {warn} Verifiez que les librairies que vous ajoutez ne sont pas déjà incluses dans Azuriom afin d'éviter des conflits entre les versions et des erreurs.
 
 ### Migrations
 
