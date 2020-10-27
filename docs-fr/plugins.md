@@ -332,6 +332,8 @@ Dans le dossier de votre plugin, éxecutez la commande usuel pour installer une 
 
 Puis ajoutez `require_once __DIR__.'/../../vendor/autoload.php';` à la méthode register du ServiceProvider
 
+/!\ Attention /!\ Verifiez que la librairie ne se trouve pas déjà dans le [composer.json](https://github.com/Azuriom/Azuriom/blob/master/composer.json), les conflits de versions créent des erreurs
+
 ### Migrations
 
 Les migrations permettent de créer, modifier ou supprimer des tables dans la base
