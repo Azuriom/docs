@@ -265,7 +265,7 @@ class Ticket extends Model
 ### Service Provider
 
 Les services providers sont le cœur d'un plugin, ils sont appelés à l'initialisation
-de Laravel, et permettent d'enregistrer les différentes parties d'un plugin (vues, traductions, middlewares, etc).
+de Laravel, et permettent d'enregistrer les différentes parties d'un plugin (vues, traductions, middlewares, librairies, etc).
 
 Les services providers doivent être ajoutés dans la partie `providers` du `plugins.json`.
 
