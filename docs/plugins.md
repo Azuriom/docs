@@ -262,7 +262,7 @@ class Ticket extends Model
 ### Service Provider
 
 The service providers are the heart of a plugin, they are called at the initialization stage.
-of Laravel, and allow to save the different parts of a plugin (views, translations, middlewares, etc).
+of Laravel, and allow to save the different parts of a plugin (views, translations, middlewares, dependencies, etc).
 
 Service providers must be added to the `providers` part of the `plugins.json`:
 ```json
@@ -321,6 +321,11 @@ class SupportServiceProvider extends BasePluginServiceProvider
 }
 ```
 
+#### Plugin dependencies
+
+Within your plugin directory run your usual composer require command.
+
+Then add `require_once __DIR__.'/../../vendor/autoload.php';` to the register method of the ServiceProvider
 
 ### Migration
 
