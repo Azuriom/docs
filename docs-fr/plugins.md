@@ -326,6 +326,11 @@ class SupportServiceProvider extends BasePluginServiceProvider
 }
 ```
 
+#### Les librairies pour plugins
+
+Dans le dossier de votre plugin, éxecutez la commande usuel pour installer une librairie composer
+
+Puis ajoutez `require_once __DIR__.'/../../vendor/autoload.php';` à la méthode register du ServiceProvider
 
 ### Migrations
 
