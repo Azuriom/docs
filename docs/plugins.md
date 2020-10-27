@@ -327,6 +327,8 @@ Within your plugin directory run your usual composer require command.
 
 Then add `require_once __DIR__.'/../../vendor/autoload.php';` to the register method of the ServiceProvider
 
+/!\ **Be careful** /!\  Make sure that the dependencies you require are not already in the [composer.json](https://github.com/Azuriom/Azuriom/blob/master/composer.json). Version conflicts will give you errors
+
 ### Migration
 
 Migrations allow you to create, modify or delete tables in the database.
