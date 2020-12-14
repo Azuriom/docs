@@ -84,9 +84,9 @@ Azuriom offers an automatic installer to install Azuriom easily by following the
 
 ## Web server configuration
 
-### Apache 2
+### Apache2
 
-If you are using Apache 2, it may be necessary to enable url rewriting.
+If you are using Apache2, it may be necessary to enable url rewriting.
 
 To do this, first enable the "rewrite" mod:
 ```

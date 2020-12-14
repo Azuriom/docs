@@ -132,9 +132,9 @@ déconseillé d'activer le debug et de configurer l'environnement de développem
 
 ## Configuration du serveur web
 
-### Apache 2
+### Apache2
 
-Si vous utilisez Apache 2, il peut être nécessaire d'activer la réécriture d'url.
+Si vous utilisez Apache2, il peut être nécessaire d'activer la réécriture d'url.
 
 Pour cela, commencez par activer le mod "rewrite" avec la commande suivante :
 ```
@@ -153,7 +153,7 @@ et y ajouter les lignes suivantes entre les balises `<VirtualHost>` (en remplaç
 </Directory>
 ```
 
-Pour finir, il faut juste redémarrer Apache 2:
+Pour finir, il faut juste redémarrer Apache2 :
 ```
 service apache2 restart
 ```
