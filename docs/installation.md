@@ -28,16 +28,20 @@ If you are using a VPS or a dedicated server, it will probably be necessary to i
 yourself Nginx, PHP and MySQL. This can be done with the following commands :
 ```
 apt update && apt upgrade
+apt install ca-certificates lsb-release apt-transport-https gnupg zip unzip curl -y
 
-apt install nginx zip curl
+apt-key adv --fetch-keys 'https://nginx.org/keys/nginx_signing.key'
+echo "deb https://nginx.org/packages/mainline/ID/ $(lsb_release -sc) nginx" >/etc/apt/sources.list.d/nginx.list
+echo "deb-src https://nginx.org/packages/mainline/ID/ $(lsb_release -sc) nginx" >>/etc/apt/sources.list.d/nginx.list
+apt update
+apt install nginx
 
-apt install lsb-release apt-transport-https ca-certificates
 wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
-echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/php.list
+echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/php.list
 apt update
 apt install php8.0 php8.0-fpm php8.0-mysql php8.0-pgsql php8.0-sqlite php8.0-bcmath php8.0-mbstring php8.0-xml php8.0-curl php8.0-zip php8.0-gd
 ```
-
+Do not forget to change "ID" for "debian" or "ubuntu" for NGINX.
 Once the requirements are installed, you must configure the web server.
 Explanations are available at the bottom of this page.
 
@@ -84,9 +88,9 @@ Azuriom offers an automatic installer to install Azuriom easily by following the
 
 ## Web server configuration
 
-### Apache 2
+### Apache2
 
-If you are using Apache 2, it may be necessary to enable url rewriting.
+If you are using Apache2, it may be necessary to enable url rewriting.
 
 To do this, first enable the "rewrite" mod:
 ```
@@ -104,7 +108,7 @@ and add the following lines between the `<VirtualHost>` tags (replacing
 </Directory>
 ```
 
-Finally, you just need to restart Apache 2:
+Finally, you just need to restart Apache2:
 ```
 service apache2 restart
 ```
