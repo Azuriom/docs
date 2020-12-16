@@ -30,8 +30,8 @@ apt update && apt upgrade
 apt install ca-certificates lsb-release apt-transport-https gnupg zip unzip curl -y
 
 apt-key adv --fetch-keys 'https://nginx.org/keys/nginx_signing.key'
-echo "deb https://nginx.org/packages/mainline/ID/ $(lsb_release -sc) nginx" >/etc/apt/sources.list.d/nginx.list
-echo "deb-src https://nginx.org/packages/mainline/ID/ $(lsb_release -sc) nginx" >>/etc/apt/sources.list.d/nginx.list
+echo "deb https://nginx.org/packages/mainline/$(awk -F= '$1=="ID" { print $2 ;}' /etc/os-release) $(lsb_release -sc) nginx" >>/etc/apt/sources.list.d/nginx.list
+echo "deb-src https://nginx.org/packages/mainline/$(awk -F= '$1=="ID" { print $2 ;}' /etc/os-release) $(lsb_release -sc) nginx" >>/etc/apt/sources.list.d/nginx.list
 apt update
 apt install nginx
 
@@ -40,7 +40,6 @@ echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt
 apt update
 apt install php8.0 php8.0-fpm php8.0-mysql php8.0-pgsql php8.0-sqlite php8.0-bcmath php8.0-mbstring php8.0-xml php8.0-curl php8.0-zip php8.0-gd
 ```
-N'oubliez pas de changer "ID" pour "debian" ou "ubuntu" pour NGINX.
 Une fois les pré-requis installés, vous devez configurer le serveur web. Pour ce
 faire, des explications sont disponibles en bas de cette page.
 
