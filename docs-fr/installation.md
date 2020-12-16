@@ -30,7 +30,7 @@ apt update && apt upgrade
 apt install ca-certificates lsb-release apt-transport-https gnupg zip unzip curl -y
 
 apt-key adv --fetch-keys 'https://nginx.org/keys/nginx_signing.key'
-echo "deb https://nginx.org/packages/mainline/$(awk -F= '$1=="ID" { print $2 ;}' /etc/os-release) $(lsb_release -sc) nginx" >>/etc/apt/sources.list.d/nginx.list
+echo "deb https://nginx.org/packages/mainline/$(awk -F= '$1=="ID" { print $2 ;}' /etc/os-release) $(lsb_release -sc) nginx" >/etc/apt/sources.list.d/nginx.list
 echo "deb-src https://nginx.org/packages/mainline/$(awk -F= '$1=="ID" { print $2 ;}' /etc/os-release) $(lsb_release -sc) nginx" >>/etc/apt/sources.list.d/nginx.list
 apt update
 apt install nginx
