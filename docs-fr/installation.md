@@ -32,7 +32,7 @@ apt install nginx zip curl
 
 apt install lsb-release apt-transport-https ca-certificates
 wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
-echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/php.list
+echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/php.list
 apt update
 apt install php8.0 php8.0-fpm php8.0-mysql php8.0-pgsql php8.0-sqlite php8.0-bcmath php8.0-mbstring php8.0-xml php8.0-curl php8.0-zip php8.0-gd
 ```
@@ -132,9 +132,9 @@ déconseillé d'activer le debug et de configurer l'environnement de développem
 
 ## Configuration du serveur web
 
-### Apache 2
+### Apache2
 
-Si vous utilisez Apache 2, il peut être nécessaire d'activer la réécriture d'url.
+Si vous utilisez Apache2, il peut être nécessaire d'activer la réécriture d'url.
 
 Pour cela, commencez par activer le mod "rewrite" avec la commande suivante :
 ```
@@ -153,7 +153,7 @@ et y ajouter les lignes suivantes entre les balises `<VirtualHost>` (en remplaç
 </Directory>
 ```
 
-Pour finir, il faut juste redémarrer Apache 2:
+Pour finir, il faut juste redémarrer Apache2 :
 ```
 service apache2 restart
 ```
