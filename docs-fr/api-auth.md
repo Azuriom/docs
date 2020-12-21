@@ -48,6 +48,10 @@ Dans le `pom.xml`:
 </dependencies>
 ```
 
+> {warn} Quelle que soit la façon dont vous utilisez l'auth api coté client, vous
+devez impérativement vérifier coté serveur que le token d'accès renvoyé par le client
+est bien valide en utilisant la méthode `verify`.
+
 ## Utilisation de AzAuth (Java)
 
 Avant d'utiliser AzAuth, veuillez vérifier que l'api est bien activée en allant
@@ -67,7 +71,7 @@ public static void auth(String username, String password) throws AuthenticationE
     authInfos = new AuthInfos(response.getSelectedProfile().getName(), response.getAccessToken(), response.getSelectedProfile().getId());
 }
 ```
-Il vous suffit de la remplacer par le code ci-dessous, en remplaçant `<url>` par l'url de la racine de votre site sous Azuriom.
+Il vous suffit de la remplacer par le code ci-dessous, en remplaçant `<url>` par l'URL de la racine de votre site sous Azuriom.
 ```java
 public static void auth(String username, String password) throws AuthenticationException, IOException {
     AzAuthenticator authenticator = new AzAuthenticator("<url>");
@@ -170,7 +174,7 @@ Exemple de réponse :
 ##### Requête
 |     Field    |               Description              |
 | ------------ | -------------------------------------- |
-| access_token | Token d'acccès unique de l'utilisateur |
+| access_token | Token d'accès unique de l'utilisateur |
 
 ##### Réponse
 

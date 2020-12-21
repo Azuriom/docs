@@ -5,27 +5,28 @@
 To work, Azuriom simply requires a **web server with PHP** having at least **100 MB**
 of disk space and the following requirements:
 
- - PHP 7.3 or higher
- - URL Rewrite
- - Write/Read permissions on `storage/` and `bootstrap/cache/`.
- - BCMath PHP Extension
- - Ctype PHP Extension
- - JSON PHP Extension
- - Mbstring PHP Extension
- - OpenSSL PHP Extension
- - PDO PHP Extension
- - Tokenizer PHP Extension
- - XML PHP Extension
- - cURL PHP Extension
- - GD2 PHP Extension
- - Zip PHP Extension
+- PHP 7.3 or higher
+- URL Rewrite
+- Write/Read permissions on `storage/` and `bootstrap/cache/`.
+- BCMath PHP Extension
+- Ctype PHP Extension
+- JSON PHP Extension
+- Mbstring PHP Extension
+- OpenSSL PHP Extension
+- PDO PHP Extension
+- Tokenizer PHP Extension
+- XML PHP Extension
+- cURL PHP Extension
+- GD2 PHP Extension
+- Zip PHP Extension
 
 It's also highly recommended having a **MySQL/MariaDB or PostgreSQL database**.
 
 ### Requirements installations
 
-If you are using a VPS or a dedicated server, it will probably be necessary to install
-yourself Nginx, PHP and MySQL. This can be done with the following commands :
+If you are using a VPS or a dedicated server, it will probably be necessary to install yourself Nginx, PHP and MySQL.
+This can be done with the following commands :
+
 ```
 apt update && apt upgrade
 
@@ -38,10 +39,10 @@ apt update
 apt install php8.0 php8.0-fpm php8.0-mysql php8.0-pgsql php8.0-sqlite php8.0-bcmath php8.0-mbstring php8.0-xml php8.0-curl php8.0-zip php8.0-gd
 ```
 
-Once the requirements are installed, you must configure the web server.
-Explanations are available at the bottom of this page.
+Once the requirements are installed, you must configure the web server. Explanations are available at the bottom of this
+page.
 
-> {info} If you prefer, you can also use this unofficial 
+> {info} If you prefer, you can also use this unofficial
 [auto-install script](https://github.com/AzuriomCommunity/Script-AutoInstall)
 which will install all the prerequisites automatically.
 
@@ -56,46 +57,47 @@ Azuriom offers an automatic installer to install Azuriom easily by following the
 1. Extract the archive at the root of your website.
 
 1. Set write/read permissions to the root of your web server:
-    ```
-    chmod -R 755 /var/www/azuriom
-    ```
-    (just replace `/var/www/azuriom` with the site location)
-    
-    If the current user is not the web server user, it may be
-    necessary to change the owner of the files:
+   ```
+   chmod -R 755 /var/www/azuriom
+   ```
+   (just replace `/var/www/azuriom` with the site location)
+
+   If the current user is not the web server user, it may be necessary to change the owner of the files:
     ```
     chown -R www-data:www-data /var/www/azuriom
     ```
-    (replace `/var/www/azuriom` with the site location and `www-data`
-    with the web server user)
+   (replace `/var/www/azuriom` with the site location and `www-data`
+   with the web server user)
 
 1. Go to `your-website.com/install.php` and follow the steps of installation.
 
 1. (Optional) Setup the scheduler:
-    
-    Some features need the scheduler to be set up, for this you need to configure
-    your server to run the command `php artisan schedule:run` every minute,
-    for example by adding this Cron entry (don't forget to replace `/var/www/azuriom`
-    with the location of the site):     
-    ```
-    * * * * * cd /var/www/azuriom && php artisan schedule:run >> /dev/null 2>&1
-    ```
-    This can be done by modifying the crontab configuration with the `crontab -e` command.
+
+   Some features need the scheduler to be set up, for this you need to configure your server to run the
+   command `php artisan schedule:run` every minute, for example by adding this Cron entry (don't forget to
+   replace `/var/www/azuriom`
+   with the location of the site):
+   ```
+   * * * * * cd /var/www/azuriom && php artisan schedule:run >> /dev/null 2>&1
+   ```
+   This can be done by modifying the crontab configuration with the `crontab -e` command.
 
 ## Web server configuration
 
 ### Apache2
 
-If you are using Apache2, it may be necessary to enable url rewriting.
+If you are using Apache2, it may be necessary to enable URL rewriting.
 
 To do this, first enable the "rewrite" mod:
+
 ```
 a2enmod rewrite
 ```
- 
-Then you need to modify the `/etc/apache2/sites-available/000-default.conf` file
-and add the following lines between the `<VirtualHost>` tags (replacing
+
+Then you need to modify the `/etc/apache2/sites-available/000-default.conf` file and add the following lines between
+the `<VirtualHost>` tags (replacing
 `var/www/azuriom` by site location) to allow URL rewrite:
+
 ```
 <Directory "/var/www/azuriom">
     Options FollowSymLinks
@@ -105,14 +107,15 @@ and add the following lines between the `<VirtualHost>` tags (replacing
 ```
 
 Finally, you just need to restart Apache2:
+
 ```
 service apache2 restart
 ```
 
 ## Nginx
 
-If you are deploying Azuriom on a server that uses Nginx, you can use
-the following configuration:
+If you are deploying Azuriom on a server that uses Nginx, you can use the following configuration:
+
 ```
 server {
     listen 80;
@@ -153,4 +156,5 @@ This config must be placed in a site in `site-available` and not in the
 `nginx.conf`.
 
 Just remember to replace `example.com` with your domain, `/var/www/azuriom`
-with the location of the site and `php8.0` with your PHP version.
+with the location of the site (without removing the `/public` at the end of the line !)
+and `php8.0` with your PHP version.

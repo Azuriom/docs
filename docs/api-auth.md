@@ -49,6 +49,10 @@ in `pom.xml`:
 </dependencies>
 ```
 
+> {warn} Regardless of how you use the client-side auth api, you must verify on
+the server that the access token returned by the client is valid by using
+the `verify` method.
+
 ## Use of AzAuth (Java)
 
 Before using AzAuth, please make sure that the API is activated by going to
@@ -68,7 +72,7 @@ public static void auth(String username, String password) throws AuthenticationE
     authInfos = new AuthInfos(response.getSelectedProfile().getName(), response.getAccessToken(), response.getSelectedProfile().getId());
 }
 ```
-You just have to replace it by the code below, to modify `<url>` by the url of your Azuriom's website root.
+You just have to replace it by the code below, to modify `<url>` by the URL of your Azuriom's website root.
 ```java
 public static void auth(String username, String password) throws AuthenticationException, IOException {
     AzAuthenticator authenticator = new AzAuthenticator("<url>");

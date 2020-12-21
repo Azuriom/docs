@@ -7,9 +7,9 @@ but here are the most common mistakes with their solutions!
 
 ### The home page works, but the other pages produce a 404 error
 
-The url rewriting is not activated, you just have to activate it (see next question).
+The URL rewriting is not activated, you just have to activate it (see next question).
 
-### URL rewriting is not enabled in Apache 2
+### Apache2 URL rewrite
 You need to modify the `/etc/apache2/sites-available/000-default.conf` file and add these lines between the `<VirtualHost>` tags:
 ```
 <Directory "/var/www/html">
@@ -36,9 +36,9 @@ the following steps:
 1) Download the latest `cacert.pem` on https://curl.haxx.se/ca/cacert.pem
 1) Add this line in the php.ini (replace `/path/to/cacert.pem` by
 the location of the `cacert.pem` file):
-    ```
-    curl.cainfo="/path/to/cacert.pem""
-    ```
+   ```
+   curl.cainfo="/path/to/cacert.pem""
+   ```
 1) Restart PHP
 
 ### The file has not been uploaded when uploading an image
@@ -52,3 +52,41 @@ of PHP (in `php.ini`) by changing the following values:
 upload_max_filesize = 10M
 post_max_size = 10M
 ```
+
+### Problem with AzLink or payment gateways with Cloudflare
+
+Cloudflare can prevent AzLink or some payment gateways from working
+correctly.
+
+To fix this issue, you can disable Cloudflare on the API, by going to Page Rules
+-> Add a rule, then add `/api/*` as the URL and these actions:
+* Cache Level: Bypass
+* Always Online: OFF
+* Security Level: **Not** "I'm under attack"
+* Browser Integrity Check: OFF 
+
+More details are available on the [Cloudflare website](https://support.cloudflare.com/hc/en-us/articles/200504045-Using-Cloudflare-with-your-API).
+
+### Force HTTPS on Apache2
+
+Add these lines **juste after** `RewriteEngine On` in the `.htaccess` at the root of your website:
+```
+RewriteCond %{HTTPS} off
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R,L]
+```
+
+### Installing another website on Apache2
+
+If you wish to install another site (ex: Pterodactyl panel, etc)
+on the same web server as the one on which Azuriom is installed, it's recommended
+to install it on a sub-domain (ex: panel.your-website.com).
+
+In case it's not possible, you can configure Apache to
+run them on the same domain, by adding an `.htaccess` file to the directory
+of the other website (ex: /panel) with the following content :
+```
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^ - [L]
+</IfModule>
+``` 

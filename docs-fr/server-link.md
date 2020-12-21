@@ -26,11 +26,11 @@ et remplir les informations demandées _(le port par défaut de Minecraft est `2
 
 ### Liaison par Rcon
 
-Pour pouvoir lier un serveur avec un site sous Azuriom par Rcon, il faut:
+Pour pouvoir lier un serveur avec un site sous Azuriom par Rcon, il faut :
 
 1. Vous rendre dans le fichier `server.properties` de votre serveur
 
-1. Configurer ce fichier de la façon suivante:
+1. Configurer ce fichier de la façon suivante :
     * Mettre `enable-rcon` en `true`
     * Mettre `rcon.password` avec `votre-mot-de-passe`
     * Mettre `rcon.port` avec `votre-port` _(par défaut `25575`)_
@@ -41,7 +41,7 @@ et remplir les informations demandées _(le port Rcon par défaut est `25575`)_.
 
 ### Liaison par plugin (AzLink)
 
-#### Qu'est-ce que AzLink ?
+#### Qu'est-ce qu'AzLink ?
 
 AzLink est un plugin de liaison site-serveur spécialement conçu pour et par Azuriom 
 afin de vous permettre de lier un serveur Minecraft à un site sous Azuriom de façon simple,
@@ -91,7 +91,7 @@ et remplir les informations demandées.
 ### Liaison par Rcon
 
 Pour pouvoir relier votre serveur à votre site web sous Azuriom par Rcon, 
-Vous devez:
+Vous devez :
 
 1. Aller dans le fichier où se trouvent les informations Rcon de votre serveur.
    

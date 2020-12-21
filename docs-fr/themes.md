@@ -160,7 +160,7 @@ n'est pas null et que le serveur est en ligne, et si c'est le cas utiliser
 
 Un thème peut, s’il en a besoin, charger des traductions.
 
-Pour cela il suffit de créer un fichier `messages.php` dans le dossier `lang/<lang>` (ex: `lang/fr`)
+Pour cela il suffit de créer un fichier `messages.php` dans le dossier `lang/<lang>` (ex : `lang/fr`)
 du thème, vous pouvez ensuite affichez une traduction via la fonction
 `trans` : `{{ trans('theme::messages.hello') }}` ou via la directive `@lang`: 
 `@lang('theme::messages.hello')`.

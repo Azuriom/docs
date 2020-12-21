@@ -5,19 +5,19 @@
 Pour fonctionner, Azuriom nécessite simplement un **serveur web avec PHP** disposant d'au moins **100 MO**
 d'espace disque ainsi que des prérequis suivants :
 
- - PHP 7.3 ou plus récent
- - Réécriture d'URL
- - Extension PHP BCMath
- - Extension PHP Ctype
- - Extension PHP JSON
- - Extension PHP Mbstring
- - Extension PHP OpenSSL
- - Extension PHP PDO
- - Extension PHP Tokenizer
- - Extension PHP XML
- - Extension PHP cURL
- - Extension PHP GD2
- - Extension PHP Zip
+- PHP 7.3 ou plus récent
+- Réécriture d'URL
+- Extension PHP BCMath
+- Extension PHP Ctype
+- Extension PHP JSON
+- Extension PHP Mbstring
+- Extension PHP OpenSSL
+- Extension PHP PDO
+- Extension PHP Tokenizer
+- Extension PHP XML
+- Extension PHP cURL
+- Extension PHP GD2
+- Extension PHP Zip
 
 Il est également très fortement recommandé de posséder **une base de données MySQL/MariaDB ou PostgreSQL**.
 
@@ -32,7 +32,7 @@ apt install nginx zip curl
 
 apt install lsb-release apt-transport-https ca-certificates
 wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
-echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/php.list
+echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/php.list
 apt update
 apt install php8.0 php8.0-fpm php8.0-mysql php8.0-pgsql php8.0-sqlite php8.0-bcmath php8.0-mbstring php8.0-xml php8.0-curl php8.0-zip php8.0-gd
 ```
@@ -52,14 +52,14 @@ hébergeurs ne sont pas compatibles ou nécessitent des petites adaptations :
 * [000webhost](https://www.000webhost.com/) : Incompatible (La fonction `putenv()` est désactivée).
 * [InovaPerf](https://inovaperf.fr/) : Incompatible avec l'offre gratuite (La fonction `fsockopen()` est désactivée).
 * [BoxToPlay](https://www.boxtoplay.com/) : Incompatible (Extensions BCMath et XML manquantes)
-et très fortement déconseillé pour un serveur MineCraft.
+  et très fortement déconseillé pour un serveur MineCraft.
 * [mTxServ](https://mtxserv.com/) : Incompatible (La fonction `symlink()` est désactivée).
 * [LWS](https://www.lws.fr/) : Incompatible (La fonction `symlink()` est désactivée et la réécriture d'URL pose problème).
 * [LiveHost](https://www.livehost.fr/) : Incompatible (La fonction `symlink()` est désactivée).
 * [Ionos](https://www.ionos.fr/) : En cas d'erreur 500 après l'installation,
-    il faut simplement modifier le fichier `.htaccess` à la racine du site et
-    rajouter `RewriteBase /` juste au-dessus de la ligne `RewriteEngine On`,
-    ce qui doit donner quelque chose comme ça :
+  il faut simplement modifier le fichier `.htaccess` à la racine du site et
+  rajouter `RewriteBase /` juste au-dessus de la ligne `RewriteEngine On`,
+  ce qui doit donner quelque chose comme ça :
     ```
         ...
         </IfModule>
@@ -89,28 +89,27 @@ Azuriom propose un installateur automatique pour installer Azuriom facilement en
     ```
     chmod -R 755 /var/www/azuriom
     ```
-    (en remplaçant simplement `/var/www/azuriom` par l'emplacement du site)
-    
-    Si l'utilisateur actuel n'est pas le même que l'utilisateur du serveur web,
-    il peut être nécessaire de changer le propriétaire des fichiers, par exemple avec cette commande :
-    ```
-    chown -R www-data:www-data /var/www/azuriom
-    ```
-    (en remplaçant simplement `/var/www/azuriom` par l'emplacement du site et `www-data` par
-    l'utilisateur du serveur web)
+   (en remplaçant simplement `/var/www/azuriom` par l'emplacement du site)
+
+   Si l'utilisateur actuel n'est pas le même que l'utilisateur du serveur web,
+   il peut être nécessaire de changer le propriétaire des fichiers, par exemple avec cette commande :
+   ```
+   chown -R www-data:www-data /var/www/azuriom
+   ```
+   (en remplaçant simplement `/var/www/azuriom` par l'emplacement du site et `www-data` par
+   l'utilisateur du serveur web)
 
 1. Se rendre sur `votre-site.fr/install.php` et suivre les étapes de l'installation.
 
 1. (Optionnel) Mettre en place le scheduler :
-    
-    Certaines fonctionnalités ont besoin que le scheduler soit mis en place, pour cela vous 
-    devez configurer votre serveur pour que la commande `php artisan schedule:run` 
-    soit exécutée toutes les minutes, par exemple en ajoutant cette entrée Cron 
-    (n'oubliez pas de remplacer `/var/www/azuriom` par l'emplacement du site) :
-    ```
-    * * * * * cd /var/www/azuriom && php artisan schedule:run >> /dev/null 2>&1
-     ```
-    Cela peut être fait en modifiant la configuration de crontab avec la commande `crontab -e`.
+   Certaines fonctionnalités ont besoin que le scheduler soit mis en place, pour cela vous
+   devez configurer votre serveur pour que la commande `php artisan schedule:run`
+   soit exécutée toutes les minutes, par exemple en ajoutant cette entrée Cron
+   (n'oubliez pas de remplacer `/var/www/azuriom` par l'emplacement du site) :
+   ```
+   * * * * * cd /var/www/azuriom && php artisan schedule:run >> /dev/null 2>&1
+   ```
+   Cela peut être fait en modifiant la configuration de crontab avec la commande `crontab -e`.
 
 
 ## Environnement de développement
@@ -134,14 +133,14 @@ déconseillé d'activer le debug et de configurer l'environnement de développem
 
 ### Apache2
 
-Si vous utilisez Apache2, il peut être nécessaire d'activer la réécriture d'url.
+Si vous utilisez Apache2, il peut être nécessaire d'activer la réécriture d'URL.
 
 Pour cela, commencez par activer le mod "rewrite" avec la commande suivante :
 ```
 a2enmod rewrite
 ```
 
-Ensuite vous pouverz configurer le site pour autoriser la réécriture d'url.
+Ensuite vous pouvez configurer le site pour autoriser la réécriture d'url.
 Il faut simplement modifier le fichier `/etc/apache2/sites-available/000-default.conf`
 et y ajouter les lignes suivantes entre les balises `<VirtualHost>` (en remplaçant
 `var/www/azuriom` par l'emplacement du site) :
@@ -161,7 +160,7 @@ service apache2 restart
 ### Nginx
 
 Si vous déployez Azuriom sur un serveur qui utilise Nginx, vous pouvez utiliser
-la configuration Nginx suivante :
+la configuration Nginx suivante pour que la réécriture d'URL soit considérée comme activée :
 
 ```
 server {
@@ -203,4 +202,5 @@ Cette config doit être placée dans un site dans `site-available` et non dans l
 `nginx.conf`.
 
 Pensez également à remplacer `example.com` par votre domaine, `/var/www/azuriom`
-par l'emplacement du site et `php8.0` par votre version de PHP.
+par l'emplacement du site (sans enlever le `/public` de la ligne !) et `php8.0`
+par votre version de PHP.

@@ -51,7 +51,7 @@ contient les différentes informations d'un plugin :
 
 > {info} Pour créer un plugin vous pouvez utiliser la commande suivante qui va
 générer automatiquement le dossier du plugin ainsi que de nombreux fichiers par
-défaut:
+défaut :
 ```
 php artisan plugin:create <nom du plugin>
 ```
@@ -59,7 +59,7 @@ php artisan plugin:create <nom du plugin>
 #### ID du plugin
 
 Chaque plugin doit posséder un id, qui doit être unique et qui doit contenir seulement
-des chiffres, des lettres miniscules et des tirets. Il est recommandé de se baser pour
+des chiffres, des lettres minuscules et des tirets. Il est recommandé de se baser pour
 le nom pour créer l'id, par exemple si le nom est `Hello World`, l'id pourra être
 `hello-world`.
 Également le dossier du plugin doit avoir le même nom que son id.
@@ -73,7 +73,7 @@ Elles sont enregistrées dans le dossier `routes` à la racine du plugin.
 Pour plus d'informations sur le fonctionnement des routes vous pouvez lire la
 [documentation de Laravel](https://laravel.com/docs/routing).
 
-Exemple:
+Exemple :
 ```php
 Route::get('/support', 'SupportController@index')->name('index');
 ```
@@ -90,7 +90,7 @@ Les assets peuvent être inclus dans la page via une [stack Blade](https://larav
 à 2 endroits différents de la page selon le type de l'asset :
 * `styles` pour les fichiers CSS (situé dans le `<head>`)
 * `scripts` pour les fichiers JS (situé dans le `<head>`, ne pas oublier d'ajouter l'attribut `defer`
-  aux scripts afin qu'ils bloquent pas le rendu de la page)
+  aux scripts afin qu'ils ne bloquent pas le rendu de la page)
 
 Ce qui donne par exemple :
 ```html
@@ -197,7 +197,7 @@ par exemple un `ticket` peut avoir un `user` et une `category`, et avoir des `co
 Vous pouvez trouver plus d'informations sur les modèles (aussi appelés Eloquent sur Laravel) dans la
 [documentation de Laravel](https://laravel.com/docs/eloquent).
 
-Exemple:
+Exemple :
 ```php
 <?php
 
@@ -387,7 +387,7 @@ class CreateSupportTicketsTable extends Migration
 
 Les traductions permettent de traduire un plugin (incroyable), elles se trouvent
 dans le dossier `resources/lang` à la racine d'un plugin, dans le dossier de la 
-langue (`en`, `fr`, etc...).
+langue (`en`, `fr`, etc).
 
 Vous pouvez trouver plus d'informations sur les traductions dans la
 [documentation de Laravel](https://laravel.com/docs/localization).
