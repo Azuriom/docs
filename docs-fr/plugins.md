@@ -12,6 +12,16 @@ besoins.
 Avant de créer un plugin, il est recommandé de lire la
 [documentation de Laravel](https://laravel.com/docs/).
 
+> {warn} Lorsqu'Azuriom est installé en local pour du développement de plugin,
+il est très fortement recommandé d'activer le debug afin de simplifier le développement.
+Cela peut se faire très simplement en modifiant ces 2 lignes dans le fichier `.env` à la
+racine du site :
+```
+APP_ENV=local
+APP_DEBUG=true
+```
+
+
 ### Structuration d'un plugin
 
 ```

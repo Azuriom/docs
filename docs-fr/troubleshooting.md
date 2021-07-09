@@ -22,16 +22,28 @@ Puis redémarrer Apache2 avec
 service apache2 restart
 ```
 
+### Réécriture d'URL sur Nginx
+Pour qu'Azuriom fonctionne, Nginx doit pointer vers le dossier `public`.
+Pour cela il faut modifier la configuration de votre site (dans `/etc/nginx/sites-available/`) et rajouter `/public` à la fin de la
+ligne contenant `root`, ce qui donne par exemple :
+```
+root /var/www/html/public;
+```
+
+Puis redémarrer Nginx avec
+```
+service nginx restart
+```
+
 ### Erreur 500 lors de l'inscription
 
 Si le compte est bien créé malgré l'erreur, ce problème peut se produire si
 jamais l'envoi des mails n'est pas correctement configuré, pour cela vérifiez
 la configuration de l'envoi des mails sur le panel admin de votre site.
 
-### Lorsque Azuriom est installé en local, les mises à jour et les thèmes/plugins ne sont disponibles
+### Erreur cURL 60
 
-Si lorsque vous allez dans l'onglet "Mises à jour" et que vous faites
-"Vérifier les mises à jour", vous avez cette erreur :
+Si vous avez cette erreur :
 `curl: (60) SSL certificate : unable to get local issuer certificate`, il suffit
 de suivre les étapes suivantes :
 1) Télécharger le dernier `cacert.pem` sur https://curl.haxx.se/ca/cacert.pem
@@ -60,12 +72,14 @@ Cloudflare peut empêcher AzLink ou certains moyens de paiements de fonctionner
 correctement.
 
 Pour corriger ce problème vous pouvez désactiver Cloudflare sur l’API, en allant
-dans Page Rules -> Ajouter une règle, puis en mettant `/api/*` dans l’URL
-et les actions suivantes :
-* Niveau de cache : Ignorer
-* Always Online : OFF
-* Niveau de sécurité : **Pas** "I'm Under Attack"
-* Vérification de l'intégrité du navigateur : OFF
+dans Page Rules -> Ajouter une règle, puis en mettant `votre-site.fr/api/*` dans l’URL
+(en remplaçant `votre-site.fr` par l'URL de votre site) et les actions suivantes :
+* Niveau de cache : 'Ignorer'
+* Always Online : 'OFF'
+* Niveau de sécurité : 'Moyen' ou 'Élevé'
+* Vérification de l'intégrité du navigateur : 'OFF'
+
+Si le problème persite, vérifiez également les règles du pare-feu.
 
 Plus de détails sont disponibles sur le [site de Cloudflare](https://support.cloudflare.com/hc/en-us/articles/200504045-Using-Cloudflare-with-your-API).
 
@@ -76,6 +90,21 @@ Ajoutez ces lignes **juste après** le `RewriteEngine On` dans le `.htaccess` à
 RewriteCond %{HTTPS} off
 RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R,L]
 ```
+
+### Les votes chargent indéfiniment
+
+Vous pouvez activer la compatibilité ipv4/ipv6 dans les paramètres du plugin vote
+pour résoudre ce problème.
+
+Si vous utilisez Cloudflare, pensez également à installer le plugin
+[Cloudflare Support](https://azuriom.com/market/resources/12).
+
+### Changer les identifiants de la base de données
+
+Vous pouvez changer les informations de connexion à la base de données en modifiant
+le fichier `.env` à la racine du site. Si celui-ci ne s'affiche pas, il peut être nécessaire
+d'activer les fichiers cachés.
+Une fois fait, supprimez le fichier `bootstrap/cache/config.php` si ce fichier existe.
 
 ### Installer un autre site sur Apache2
 

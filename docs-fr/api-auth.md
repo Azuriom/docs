@@ -6,8 +6,7 @@ AzAuth est une api qui permet d'authentifier les utilisateurs d'un site sous Azu
 ## Téléchargement
 
 Les sources d'AzAuth sont disponibles sur [GitHub](https://github.com/Azuriom/AzAuth)
-et le jar peut être téléchargé depuis
-[Sonatype OSS](https://oss.sonatype.org/service/local/repositories/snapshots/content/com/azuriom/azauth/1.0-SNAPSHOT/azauth-1.0-20200221.223801-1.jar).
+et le jar peut être téléchargé [ici](https://azuriom.com/storage/azauth-1.0-SNAPSHOT.jar).
 
 Si vous utilisez un gestionnaire de dépendances, vous pouvez ajouter AzAuth comme
 dépendance de la façon suivante :
@@ -212,4 +211,4 @@ Déconnecte l'utilisateur et rend invalide le token donné.
 
 ##### Réponse
 
-En cas de succès réponse vide, avec le code `200` ou `204`.
+En cas de succès réponse vide, avec un code `2xx`.

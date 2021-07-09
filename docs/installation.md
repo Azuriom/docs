@@ -24,7 +24,7 @@ It's also highly recommended having a **MySQL/MariaDB or PostgreSQL database**.
 
 ### Requirements installations
 
-If you are using a VPS or a dedicated server, it will probably be necessary to install yourself Nginx, PHP and MySQL.
+If you are using a VPS or a dedicated server, it will probably be necessary to install yourself a web server, PHP and MySQL.
 This can be done with the following commands :
 
 ```
@@ -125,6 +125,7 @@ server {
     add_header X-Frame-Options "SAMEORIGIN";
     add_header X-XSS-Protection "1; mode=block";
     add_header X-Content-Type-Options "nosniff";
+    add_header Referrer-Policy "strict-origin-when-cross-origin";
 
     index index.html index.htm index.php;
 

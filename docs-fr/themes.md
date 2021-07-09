@@ -20,6 +20,15 @@ du SASS et optimiser les fichiers JavaScript, vous pouvez utiliser ce
 [boilerplate non-officiel](https://github.com/nolway/azuriom-theme-boilerplate)
  (il est également nécessaire d'installer [Node.js](https://nodejs.org) avec NPM)
 
+> {warn} Lorsqu'Azuriom est installé en local pour du développement de thème,
+il est très fortement recommandé d'activer le debug afin de simplifier le développement.
+Cela peut se faire très simplement en modifiant ces 2 lignes dans le fichier `.env` à la
+racine du site :
+```
+APP_ENV=local
+APP_DEBUG=true
+```
+
 ### Structuration
 
 ```

@@ -7,6 +7,14 @@ A theme allows you to fully customize the look and feel of a website using Azuri
 To install a theme, just put it in the `resources/themes/` folder at
 the root of your website.
 
+> {warn} When Azuriom is installed locally for theme development,
+it's highly recommended to activate the debug to simplify development.
+This can be done by simply editing these 2 lines in the `.env` file:
+```
+APP_ENV=local
+APP_DEBUG=true
+```
+
 ## Creating a theme
 
 To quickly create a theme you can use the following command that will

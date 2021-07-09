@@ -24,7 +24,7 @@ Il est également très fortement recommandé de posséder **une base de donnée
 ### Installation des pré-requis
 
 Si vous utilisez un VPS ou un serveur dédié, il sera sûrement nécessaire d'installer
-vous-même Nginx, PHP et MySQL, cela peut se faire avec les commandes suivantes :
+vous-même un serveur web, PHP et MySQL, cela peut se faire par exemple avec les commandes suivantes :
 ```
 apt update && apt upgrade
 
@@ -32,7 +32,7 @@ apt install nginx zip curl
 
 apt install lsb-release apt-transport-https ca-certificates
 wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
-echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/php.list
+echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/php.list
 apt update
 apt install php8.0 php8.0-fpm php8.0-mysql php8.0-pgsql php8.0-sqlite php8.0-bcmath php8.0-mbstring php8.0-xml php8.0-curl php8.0-zip php8.0-gd
 ```
@@ -171,6 +171,7 @@ server {
     add_header X-Frame-Options "SAMEORIGIN";
     add_header X-XSS-Protection "1; mode=block";
     add_header X-Content-Type-Options "nosniff";
+    add_header Referrer-Policy "strict-origin-when-cross-origin";
 
     index index.html index.htm index.php;
 

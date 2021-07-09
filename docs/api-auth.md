@@ -5,9 +5,7 @@ AzAuth is an api allowing you to authenticate users of a website under Azuriom o
 ## Download
 
 AzAuth sources are available on [GitHub](https://github.com/Azuriom/AzAuth)
-and the jar file can be downloaded from 
-[Sonatype OSS](https://oss.sonatype.org/service/local/repositories/snapshots/content/com/azuriom/azauth/1.0-SNAPSHOT/azauth-1.0-20200221.223801-1.jar).
-
+and the jar file can be downloaded [here](https://azuriom.com/storage/azauth-1.0-SNAPSHOT.jar).
 
 If you are using a dependency manager, you can add AzAuth as a
 dependency by the following way:
@@ -83,8 +81,117 @@ Once this is done, you just need to import the class `AzAuthenticator` &
 `AuthenticationException` from the `com.azuriom.auth` package and AzAuth will be integrated
 into your launcher.
 
-### Using without OpenLauncherLib
+### Usage without OpenLauncherLib
 
 AzAuth has been designed with [Gson](https://github.com/google/gson) as its only dependency, so you can use it perfectly well if you don't use
 OpenLauncherLib, you can simply use `AzAuthenticator#authenticate(String username, String password)` and that will 
 give you directly a `User` containing a username, uuid, rank, access token and lots of other useful data.
+
+
+## Usage with NodeJs
+
+### Installation
+
+The source code is available on [GitHub](https://github.com/Azuriom/AzAuthJs)
+and the package can be installed with `npm install azuriom-auth`.
+
+### Usage
+
+```js
+const AzuriomAuth = require('azuriom-auth');
+
+async function login(email, password) {
+  const authenticator = new Authenticator('<url of your website>');
+
+  try {
+    const user = await authenticator.auth(email, password);
+
+    console.log(`Logged in with ${user.email}`);
+  } catch (e) {
+    console.log(e);
+  }
+}
+```
+
+
+### Endpoints
+
+#### Authentification
+
+**POST** `/authenticate`
+
+Authenticate a user with their website credentials
+
+##### Request
+|   Field   |        Description         |
+| --------- | -------------------------- |
+|   email   | Username or e-mail address |
+| password  |           Password         |
+
+##### Response
+
+Returns the user with his various information, and the unique token
+which can be used to verify the connection or to disconnect.
+
+```json
+{
+    "id": 1,
+    "username": "Username",
+    "uuid": "00000000-0000-0000-0000-000000000000",
+    "email_verified": true,
+    "money": 100.0,
+    "role": {
+        "name": "Member",
+        "color": "#e10d11"
+    },
+    "banned": false,
+    "created_at": "2020-06-29T17:39:12+00:00",
+    "access_token": "xxxxxxxx"
+}
+```
+
+#### Verification
+
+**POST** `/verify`
+
+##### Request
+|     Field    |     Description     |
+| ------------ | ------------------- |
+| access_token | Unique access token |
+
+##### Réponse
+
+Returns the user with his various information, and the unique token
+which can be used to verify the connection or to disconnect.
+
+```json
+{
+    "id": 1,
+    "username": "Username",
+    "uuid": "00000000-0000-0000-0000-000000000000",
+    "email_verified": true,
+    "money": 100.0,
+    "role": {
+        "name": "Member",
+        "color": "#e10d11"
+    },
+    "banned": false,
+    "created_at": "2020-06-29T17:39:12+00:00",
+    "access_token": "xxxxxxxx"
+}
+```
+
+#### Logout
+
+**POST** `/logout`
+
+Logout the user and invalidates the access token.
+
+##### Request
+|     Field    |     Description     |
+| ------------ | ------------------- |
+| access_token | Unique access token |
+
+##### Response
+
+Empty response, with `2xx` status code.
